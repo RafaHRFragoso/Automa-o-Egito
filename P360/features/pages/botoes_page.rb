@@ -5,6 +5,7 @@ class BotoesPage <SitePrism::Page
     element :button_detalhar, "procenge-button[tipo='detalhar']" 
     element :button_excluir, "procenge-button[tipo='excluir']" 
     element :button_imprimir, "procenge-button[tipo='imprimir']" 
+    element :button_salvar, "procenge-buttonsplit[tipo='salvar']" 
     #element :button_pesquisar, "" 
     #element :button_limpar, "" 
 
@@ -39,4 +40,7 @@ class BotoesPage <SitePrism::Page
         button_imprimir.click     
     end
 
+    def clickButtonSalvar
+        button_salvar.click     
+    end
 end    

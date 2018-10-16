@@ -2,6 +2,7 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'capybara/dsl'
 require 'capybara//rspec/matchers'
+require 'faker'
 require 'rspec'
 require 'selenium-webdriver'
 require 'site_prism'
@@ -13,7 +14,7 @@ World(Pages)
 
 Capybara.configure do |config|
     config.default_driver = :selenium_chrome    
-    config.default_max_wait_time = 10
+    config.default_max_wait_time = 20
     config.app_host = 'http://10.50.254.162/P360'
 end     
 

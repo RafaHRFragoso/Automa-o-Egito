@@ -16,4 +16,3 @@ After do |scenario|
     #anexando screenshots aos report
     embed(screenshot, 'image/png', 'Evidencia')
 end
-

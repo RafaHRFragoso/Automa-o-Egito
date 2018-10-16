@@ -16,6 +16,8 @@ module Pages
     end    
     def telascontabil
         @telascontabil ||= TelasContabilidadePage.new
-    end   
-
+    end
+    def cadgrupocontaaux
+        @cadgrupocontaaux ||= CadGrupoContaAux.new   
+    end    
 end    

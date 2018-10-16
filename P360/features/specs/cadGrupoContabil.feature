@@ -2,6 +2,9 @@
 @cadgrupoContabil
 Funcionalidade: Cadastrar Grupo Contábil
 
+Como um usuário logado no sistema
+Posso acessar a tela desejada
+E cadastrar um novo registro no sistema
 
     Contexto: Pré-condições
         Dado que o usuário acesse a página inicial
@@ -11,4 +14,3 @@ Funcionalidade: Cadastrar Grupo Contábil
         Então acessar a tela de Grupo Contábil     
             
     Cenario: Cadastrar Grupo Contábil Caminho Feliz
-        Quando eu clico em pesquisar
