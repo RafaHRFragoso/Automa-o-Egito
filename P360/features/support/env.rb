@@ -14,7 +14,7 @@ World(Pages)
 
 Capybara.configure do |config|
     config.default_driver = :selenium_chrome    
-    config.default_max_wait_time = 20
+    config.default_max_wait_time = 10
     config.app_host = 'http://10.50.254.162/P360'
 end     
 
