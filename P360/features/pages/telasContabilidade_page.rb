@@ -1,6 +1,5 @@
 class TelasContabilidadePage <SitePrism::Page
     #Construtor    
-    element :modulo_contabil, "a[href*='/P360/contabilidade/home']"    
     element :menuPlanoContas, "a[id='01.01.01']"
     element :menuCentroCusto, "a[id='01.01.02']" 
     element :telaGruposContabeis, "a[href*='/P360/contabilidade/grupocontabil']"

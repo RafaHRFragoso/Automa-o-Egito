@@ -11,7 +11,7 @@ E cadastrar um novo registro no sistema
         Quando logar com "RAFAEL2" e "PIRAMIDE"
         Então deve ser autenticado com sucesso
         E selecionar a empresa "ICOM COMÉRCIO - SP" 
-        E acessar a tela de Grupos de Contas Auxiliares
+        Quando acessar a tela de Grupos de Contas Auxiliares        
         Então o sistema deve exibir a tela de Grupos de Contas Auxiliares 
 
     @incluir

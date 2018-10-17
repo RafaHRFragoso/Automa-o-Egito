@@ -16,7 +16,8 @@ class HomePage < SitePrism::Page
     end    
 
     def setEmpresa(empresa)
-        click_button empresa        
+        @empresa = empresa
+        click_button @empresa        
     end   
     
     def confirm_empresa        
