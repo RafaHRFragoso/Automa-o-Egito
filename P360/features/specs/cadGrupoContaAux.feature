@@ -14,20 +14,20 @@ E cadastrar um novo registro no sistema
         Quando acessar a tela de Grupos de Contas Auxiliares        
         Então o sistema deve exibir a tela de Grupos de Contas Auxiliares 
 
-    @incluir
+    @incluirGCA
     Cenario: Cadastrar Grupo de Conta Auxiliar Caminho Feliz
         Dado que eu acesse a tela de Incluir Grupo de Conta Auxiliar
         Quando o usuário preencher os campos obrigatórios
-        E Salvar o registro
-        Então a operação deverá ser realizada com sucesso
+        #E Salvar o registro
+        #Então a operação deverá ser realizada com sucesso
 
-    @detalhar
+    @detalharGCA
     Cenario: Detalhar Grupo de Conta Auxiliar Caminho Feliz    
         Quando o usuário pesquisar um registro previamente incluido
         E detalhar o registro escolhido
         Então o sistema deverá exibir a tela de detalhamnento  
 
-    @alterar
+    @alterarGCA
     Cenario: Alterar Grupo de Conta Auxiliar Caminho Feliz
         Quando o usuário pesquisar um registro previamente incluido
         E acessar a tela de alterar registro
@@ -35,7 +35,7 @@ E cadastrar um novo registro no sistema
         E Salvar o registro
         Então a operação deverá ser realizada com sucesso     
 
-    @excluir
+    @excluirGCA
     Cenario: Excluir Grupo de Conta Auxiliar Caminho Feliz
         Quando o usuário pesquisar um registro previamente incluido
         E realizar a exclusão do registro
