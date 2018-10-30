@@ -1,5 +1,5 @@
 #language:pt
-
+@selectEmpresa
 Funcionalidade: Selecionar Empresa na HomePage
 Para que eu possa acessar os módulos do P360
 Sendo um usuário logado
