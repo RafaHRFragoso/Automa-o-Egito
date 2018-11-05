@@ -1,6 +1,4 @@
 ### CADASTRO -> PLANO DE CONTAS ### 
-
-
 Quando("acessar a tela de Grupo Contábil") do
     #selecionar módulo
     modulo.setModuloContabil

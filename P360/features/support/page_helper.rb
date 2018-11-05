@@ -20,4 +20,7 @@ module Pages
     def cadgrupocontaaux
         @cadgrupocontaaux ||= CadGrupoContaAux.new   
     end    
+    def cadcentrocusto
+        @cadcentrocusto ||= CadCentroCusto.new   
+    end    
 end    

@@ -18,8 +18,8 @@ E cadastrar um novo registro no sistema
     Cenario: Cadastrar Grupo de Conta Auxiliar Caminho Feliz
         Dado que eu acesse a tela de Incluir Grupo de Conta Auxiliar
         Quando o usuário preencher os campos obrigatórios
-        #E Salvar o registro
-        #Então a operação deverá ser realizada com sucesso
+        E Salvar o registro
+        Então a operação deverá ser realizada com sucesso
 
     @detalharGCA
     Cenario: Detalhar Grupo de Conta Auxiliar Caminho Feliz    

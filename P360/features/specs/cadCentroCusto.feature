@@ -18,3 +18,5 @@ E cadastrar um novo registro no sistema
     Cenario: Cadastrar Grupo de Conta Auxiliar Caminho Feliz
         Dado que eu acesse a tela de Incluir Centro de Custo
         Quando o usuário preencher os campos obrigatórios do Cadastro de Centro de Custo
+        E Salvar o registro
+        Então a operação deverá ser realizada com sucesso

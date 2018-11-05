@@ -1,23 +1,36 @@
 class HomePage < SitePrism::Page    
-    element :dropdown_empresa, '#dropdownMenu1 .fa-angle-down'
-    #element :confirmar_empresa, "button[type='button']"
+    element :box_usuario, '#box-usuario'
+    element :box_sair, '.box-sair'
     element :confirmar_empresa, "procenge-button[tipo='Sim']"
     element :confimar_modulo, "procenge-titulo[modulo='contabilidade']"
 
     def deslogar
-        #userHome.click
-        click_button 'RAFAEL'
-        click_button 'Sair'
+        box_usuario.click
+        box_sair.click
     end   
     
     def setDropdown
-        dropdown_empresa.click
-        #dropdown_empresa2.click
+        box_usuario.click
     end    
 
-    def setEmpresa(empresa)
-        @empresa = empresa
-        click_button @empresa        
+    def setEmpresa(empresa)        
+        @empresa = empresa   
+        
+        @empresaAtual = page.find('.box-info > h3').text
+        puts @empresaAtual
+        @posicao_icon = page.find('#box-info-usuario > div.box-empresas > ul > li:nth-child(31)').text
+        puts @posicao_icon 
+
+        
+        case @empresa
+        when @empresaAtual
+            puts 'empresa icon ja selecionada'
+        when @posicao_icon
+            page.find('#box-info-usuario > div.box-empresas > ul > li:nth-child(31)').click                     
+        else 
+            page.find('ul.lista-empresas', text: @empresa).click      
+        end    
+        
     end   
     
     def confirm_empresa        

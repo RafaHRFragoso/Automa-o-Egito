@@ -40,8 +40,8 @@ class CadGrupoContaAux < SitePrism::Page
                 @itemFiltro = @grupoAtual+" - "+@descricaoAtual    
         end    
    
-        @itemFiltro
-        click_link 'Filtrar'
+        #@itemFiltro
+        #click_link 'Filtrar'
         grupoInicial.click    
         #page.find('p-dropdown > div.ui-dropdown-open > div.ui-dropdown-panel > div.ui-dropdown-filter-container > .ui-dropdown-filter.ui-inputtext').send_keys(@itemFiltro)
         page.find('.ui-dropdown-filter.ui-inputtext').send_keys(@itemFiltro)                    

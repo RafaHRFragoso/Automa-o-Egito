@@ -16,7 +16,7 @@ end
  
   Então("deve ser autenticado com sucesso") do
     #expect(page).to have_content 'RAFAEL'
-    expect(page).to have_content("RAFAEL")    
+    expect(page).to have_content("Rafael")    
     #page.assert_text('RAFAEL')
 =begin
     text = page.find('.moduloanuncio.moduloanuncio2')
@@ -33,8 +33,4 @@ end
   Então('devo ver a seguinte mensagem {string}') do |mensagem|
     #expect(page).to have_content mensagem
     page.assert_text(mensagem)
-end
-
-  Então("vai ter um seletor css com o texto {string}") do |mensagem|
-    expect(page).to have_css('#dropdownMenu1', text: mensagem)
 end

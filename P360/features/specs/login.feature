@@ -14,7 +14,6 @@ Posso acessar o sistema com email e senha previamente cadastrados.
         
         Quando logar com "RAFAEL2" e "PIRAMIDE"
         Então deve ser autenticado com sucesso
-        E vai ter um seletor css com o texto "RAFAEL"
 
     Esquema do Cenario: Tentativa de login
         Quando logar com "<user>" e "<senha>"
