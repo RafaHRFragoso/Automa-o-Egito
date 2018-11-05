@@ -1,3 +1,16 @@
+Before('@background_GCA') do
+    step 'que o usuário acesse a página inicial'
+    step 'logar com "RAFAEL2" e "PIRAMIDE"'
+    step 'deve ser autenticado com sucesso'
+    step 'selecionar a empresa "ICOM COMÉRCIO - SP"'
+    step 'acessar a tela de Grupos de Contas Auxiliares'        
+    step 'o sistema deve exibir a tela de Grupos de Contas Auxiliares'
+end
+
+Before('@tela_GCA') do
+    visit '/contabilidade/grupocontaauxiliar'
+end
+
 After('@logout') do
     #click_button 'RAFAEL'
     #click_button 'Sair'
