@@ -8,7 +8,8 @@ E cadastrar um novo registro no sistema
 
     Contexto: Pré-condições
         Dado que o usuário acesse a página inicial
-        Quando logar com "RAFAEL2" e "PIRAMIDE"
+        #Quando logar com "RAFAEL2" e "PIRAMIDE"
+        Quando o usuário realizar o login
         Então deve ser autenticado com sucesso
         E selecionar a empresa "ICOM COMÉRCIO - SP" 
         Quando acessar a tela de Centros de Custo        

@@ -9,10 +9,10 @@ Posso acessar o sistema com email e senha previamente cadastrados.
         Dado que o usuário acesse a página inicial
         Então a logo do sistema deve ser exibida
         
-    @logout
+    @logout @templogin
     Cenario: Login com Sucesso
-        
-        Quando logar com "RAFAEL2" e "PIRAMIDE"
+        #Quando logar com "RAFAEL2" e "PIRAMIDE"
+        Quando o usuário realizar o login
         Então deve ser autenticado com sucesso
 
     Esquema do Cenario: Tentativa de login

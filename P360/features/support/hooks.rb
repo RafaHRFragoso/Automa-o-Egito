@@ -1,6 +1,6 @@
 Before('@background_GCA') do
     step 'que o usuário acesse a página inicial'
-    step 'logar com "RAFAEL2" e "PIRAMIDE"'
+    step 'o usuário realizar o login'
     step 'deve ser autenticado com sucesso'
     step 'selecionar a empresa "ICOM COMÉRCIO - SP"'
     step 'acessar a tela de Grupos de Contas Auxiliares'        
