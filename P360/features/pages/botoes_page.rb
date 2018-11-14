@@ -6,7 +6,7 @@ class BotoesPage <SitePrism::Page
     element :button_excluir, "procenge-button[tipo='excluir']" 
     element :button_imprimir, "procenge-button[tipo='imprimir']" 
     element :button_voltar, "procenge-button[tipo='voltar']"
-    element :button_salvar, "procenge-buttonsplit[tipo='salvar']"     
+    element :button_salvar, "procenge-button[tipo='salvar']"     
     #element :button_pesquisar, "" 
     #element :button_limpar, "" 
 

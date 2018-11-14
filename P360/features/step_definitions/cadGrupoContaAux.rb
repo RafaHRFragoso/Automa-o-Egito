@@ -27,7 +27,7 @@ Dado("que eu acesse a tela de Incluir Grupo de Conta Auxiliar") do
 
 # DETALHAR
 
-  Quando("o usuário pesquisar um registro previamente incluido") do        
+  Quando("o usuário pesquisar um registro previamente incluido") do      
     page.assert_text('Grupo de Conta Auxiliar')
     @descricaoFiltro = $descricaoFiltro
     #puts @descricaoFiltro

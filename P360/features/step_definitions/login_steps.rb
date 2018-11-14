@@ -1,7 +1,7 @@
 Dado("que o usuário acesse a página inicial") do
   #@login = LoginPage.new
-  #login.load
-  visit '/'
+  login.load
+  #visit '/'
 end
   
   Quando("logar com {string} e {string}") do |user, senha|    

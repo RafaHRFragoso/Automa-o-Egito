@@ -7,7 +7,8 @@ Anteriormente devo selecionar a empresa desejada
 
     Contexto: Testes Contexto
         Dado que o usuário acesse a página inicial
-        Quando logar com "RAFAEL2" e "PIRAMIDE"
+        #Quando logar com "RAFAEL2" e "PIRAMIDE"
+        Quando o usuário realizar o login
         Então deve ser autenticado com sucesso
 
     @empresa
