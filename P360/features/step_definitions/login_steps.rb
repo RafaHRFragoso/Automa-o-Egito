@@ -10,9 +10,10 @@ end
 end
 
 Quando("o usuário realizar o login") do
-  user = login.read_U
-  senha = login.read_S
-  login.do_login(user,senha)
+  #user = login.read_U
+  #senha = login.read_S
+  #login.do_login(user,senha)
+  login.do_login
 end
 
   Então("a logo do sistema deve ser exibida") do
