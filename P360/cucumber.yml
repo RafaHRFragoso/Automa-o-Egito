@@ -1,0 +1,12 @@
+---
+default: -p html -p bdd -p homolog -p chrome_headless
+html: --format html --out=log/features.html
+progress: --format progress
+bdd: --format pretty
+homolog: AMBIENTE=homolog
+producao: AMBIENTE=producao
+chrome: BROWSER=chrome 
+chrome_headless: BROWSER=chrome_headless 
+firefox: BROWSER=firefox
+firefox_headless: BROWSER=firefox_headless
+safari: BROWSER=safari

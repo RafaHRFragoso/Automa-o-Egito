@@ -19,6 +19,21 @@ end
 
 After do |scenario|
     #atribunindo 'scenario' uma variável nome_cenario e utilizando uma regex para retirar caracteres especiais
+    scenario_name = scenario.name.gsub(/[^A-Za-z0-9 ]/, '')
+    #atribuindo nome_cenario a ele mesmo e trocando todos os espaços em branco por '_' e colocando tudo em menusculo
+    scenario_name = scenario_name.gsub(' ', '_').downcase!
+
+    case
+    when scenario.failed?
+        tirar_foto(scenario_name, 'falhou')
+    when scenario.passed?
+        tirar_foto(scenario_name, 'passou')
+    end
+end
+
+=begin
+After do |scenario|
+    #atribunindo 'scenario' uma variável nome_cenario e utilizando uma regex para retirar caracteres especiais
     nome_cenario = scenario.name.gsub(/[^A-Za-z0-9 ]/, '')
     #atribuindo nome_cenario a ele mesmo e trocando todos os espaços em branco por '_' e colocando tudo em menusculo
     nome_cenario = nome_cenario.gsub(' ', '_').downcase!
@@ -29,3 +44,4 @@ After do |scenario|
     #anexando screenshots aos report
     embed(screenshot, 'image/png', 'Evidencia')
 end
+=end
