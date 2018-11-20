@@ -29,65 +29,7 @@ Capybara.configure do |config|
     $password = CONFIG['password']
 end     
 
-#Capybara.register_driver :selenium do |app|
-#    Capybara::Selenium::Driver.new(
-#        app,
-#        browser: :chrome,
-#        desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-#            'chromeOptions' => { 'args' => ['--disable-infobars',
-#                                            '--start-maximized']}
-#        )
-#    )        
-#end
 Capybara.register_driver :selenium do |app|
-=begin
-    if BROWSER.eql?('chrome')
-        Capybara::Selenium::Driver.new(
-            app, 
-            browser: :chrome,
-            desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-            'chromeOptions' => { 'args' => ['--disable-infobars',
-                                            '--start-maximized']}
-            )
-        )        
-    elsif BROWSER.eql?('chrome_headless')
-        Capybara::Selenium::Driver.new(
-            app, 
-            browser: :chrome,
-            desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-            'chromeOptions' => { 'args' => ['--headless',
-                                            '--disable-gpu',
-                                            '--no-sandbox']}
-            )
-        ) 
-    elsif BROWSER.eql?('firefox')
-        Capybara::Selenium::Driver.new(
-            app, 
-            browser: :firefox, 
-            :marionette =>true
-        )
-    elsif BROWSER.eql?('firefox_headless')
-        browser_options = Selenium::WebDriver::Firefox::Options.new()
-        browser_options.args << '--headless'
-        Capybara::Selenium::Driver.new(
-            app,
-            browser: :firefox,
-            options: browser_options
-        )                
-    elsif BROWSER.eql?('safari')
-        desired_caps = Selenium::WebDriver::Remote::Capabilities.safari(
-            {
-              accept_insecure_certs: true
-            }
-        )
-        Capybara::Selenium::Driver.new(
-            app, 
-            browser: :safari,
-            driver_path: '/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver',
-            desired_capabilities: desired_caps
-        )
-    end
-=end    
 
     case BROWSER
     when 'chrome'
@@ -100,15 +42,40 @@ Capybara.register_driver :selenium do |app|
             )
         )        
     when 'chrome_headless'
+=begin        
+        args = %w[headless disable-gpu no-sandbox]
+        caps = Selenium::WebDriver::Remote::Capabilities.chrome(
+            'chromeOptions' => { 
+                'args' => args
+                }
+            )
+           
         Capybara::Selenium::Driver.new(
             app, 
             browser: :chrome,
-            desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-            'chromeOptions' => { 'args' => ['--headless',
-                                            '--disable-gpu',
-                                            '--no-sandbox']}
+            desired_capabilities: caps
             )
-        ) 
+=end 
+        capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+            chromeOptions: { args: %w[headless disable-gpu] }
+        )
+
+        Capybara::Selenium::Driver.new(
+            app,
+            browser: :chrome,
+            desired_capabilities: capabilities
+        )
+=begin
+        options = Selenium::WebDriver::Chrome::Options.new(
+            args: %w[headless disable-gpu no-sandbox]
+        )
+        
+        Capybara::Selenium::Driver.new(
+            app, 
+            browser: :chrome, 
+            options: options
+            )        
+=end                
     when 'firefox'
         Capybara::Selenium::Driver.new(
             app, 
@@ -135,5 +102,7 @@ Capybara.register_driver :selenium do |app|
             driver_path: '/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver',
             desired_capabilities: desired_caps
         )
-    end
+    end    
 end
+
+Capybara.javascript_driver = :headless_chrome
