@@ -1,6 +1,6 @@
 ---
-default: -p html -p bdd -p homolog -p chrome_headless
-html: --format html --out=log/features.html
+default: -p html -p bdd -p homolog -p firefox_headless
+html: --format html --out=reports/features.html
 progress: --format progress
 bdd: --format pretty
 homolog: AMBIENTE=homolog
