@@ -57,7 +57,7 @@ Capybara.register_driver :selenium do |app|
             )
 =end 
         capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-            chromeOptions: { args: %w[headless disable-gpu] }
+            chromeOptions: { args: %w[headless disable-gpu window-size=1360,768] }
         )
 
         Capybara::Selenium::Driver.new(
