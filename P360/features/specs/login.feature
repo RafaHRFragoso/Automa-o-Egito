@@ -11,7 +11,6 @@ Posso acessar o sistema com email e senha previamente cadastrados.
         
     @logout @templogin
     Cenario: Login com Sucesso
-        #Quando logar com "RAFAEL2" e "PIRAMIDE"
         Quando o usuário realizar o login
         Então deve ser autenticado com sucesso
 

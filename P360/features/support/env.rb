@@ -3,6 +3,7 @@ require 'capybara'
 require 'capybara/dsl'
 require 'capybara/rspec/matchers'
 require 'faker'
+require 'rake'
 require 'rspec'
 require 'selenium-webdriver'
 require 'site_prism'
@@ -91,16 +92,9 @@ Capybara.register_driver :selenium do |app|
             options: browser_options
         )                
     when 'safari'
-        desired_caps = Selenium::WebDriver::Remote::Capabilities.safari(
-            {
-            accept_insecure_certs: true
-            }
-        )
         Capybara::Selenium::Driver.new(
             app, 
-            browser: :safari,
-            driver_path: '/Applications/Safari Technology Preview.app/Contents/MacOS/safaridriver',
-            desired_capabilities: desired_caps
+            browser: :safari
         )
     end    
 end

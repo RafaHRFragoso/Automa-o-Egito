@@ -7,7 +7,6 @@ Anteriormente devo selecionar a empresa desejada
 
     Contexto: Testes Contexto
         Dado que o usuário acesse a página inicial
-        #Quando logar com "RAFAEL2" e "PIRAMIDE"
         Quando o usuário realizar o login
         Então deve ser autenticado com sucesso
 
@@ -15,8 +14,5 @@ Anteriormente devo selecionar a empresa desejada
     Cenario: Selecionar Empresa na HomePage
         
         Quando selecionar a empresa "ICOM COMÉRCIO - SP" 
-        #Quando clicar no dropdown de seleção de empresa
-        #E selecionar a empresa "ICOM COMÉRCIO - SP" 
-        #Então devo aceitar o alerta de confirmação
 
  

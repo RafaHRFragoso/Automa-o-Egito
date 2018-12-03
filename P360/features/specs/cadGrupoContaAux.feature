@@ -6,15 +6,6 @@ Como um usuário logado no sistema
 Posso acessar a tela desejada
 E cadastrar um novo registro no sistema
 
-
-#    Contexto: Pré-condições
-#        Dado que o usuário acesse a página inicial
-#        Quando logar com "RAFAEL2" e "PIRAMIDE"
-#        Então deve ser autenticado com sucesso
-#        E selecionar a empresa "ICOM COMÉRCIO - SP" 
-#        Quando acessar a tela de Grupos de Contas Auxiliares        
-#        Então o sistema deve exibir a tela de Grupos de Contas Auxiliares 
-
     @incluirGCA @background_GCA
     Cenario: Cadastrar Grupo de Conta Auxiliar Caminho Feliz
         Dado que eu acesse a tela de Incluir Grupo de Conta Auxiliar
