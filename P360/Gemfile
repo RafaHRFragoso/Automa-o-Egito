@@ -1,7 +1,7 @@
-#Origem que serão baixadas as gems
-source "http://rubygems.org"
+# Origem que serao baixadas as gems
+source 'http://rubygems.org'
 
-#git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+# git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem 'capybara'
 gem 'capybara-selenium'
@@ -10,5 +10,6 @@ gem 'cucumber'
 gem 'faker'
 gem 'rake'
 gem 'rspec'
+gem 'rubocop', require: false
 gem 'selenium-webdriver'
 gem 'site_prism', '2.13'

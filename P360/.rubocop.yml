@@ -1,0 +1,9 @@
+inherit_from: .rubocop_todo.yml
+require:
+  - rubocop/cop/internal_affairs
+
+Metrics/BlockLength:
+  Max: 50
+
+Metrics/MethodLength:
+  Max: 20  
