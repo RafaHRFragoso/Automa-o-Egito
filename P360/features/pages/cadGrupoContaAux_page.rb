@@ -14,17 +14,25 @@ class CadGrupoContaAux < SitePrism::Page
   $descricaoFiltro = ''
 
   def preencher_Filtros(descricao)
-    case
-    when descricao == ''
-      @grupoAtual = $grupo
-      @descricaoAtual = $descricao
-      @itemFiltro = @grupoAtual + ' - ' + @descricaoAtual
-    else
-      @grupoAtual = $grupo
-      @descricaoAtual = descricao
-      @itemFiltro = @grupoAtual + ' - ' + @descricaoAtual
-    end
-
+    # case
+    # when descricao == ''
+    #   @grupoAtual = $grupo
+    #   @descricaoAtual = $descricao
+    #   @itemFiltro = @grupoAtual + ' - ' + @descricaoAtual
+    # else
+    #   @grupoAtual = $grupo
+    #   @descricaoAtual = descricao
+    #   @itemFiltro = @grupoAtual + ' - ' + @descricaoAtual
+    # end
+    @grupoAtual = $grupo
+    @descricaoAtual = case descricao
+                      when ''
+                        $descricao
+                      else
+                        descricao
+                      end
+    @itemFiltro = @grupoAtual + ' - ' + @descricaoAtual
+    puts @itemFiltro
     within(divgrupoInicial) do
       # grupoInicial.click
       dropgrupoInicial.click

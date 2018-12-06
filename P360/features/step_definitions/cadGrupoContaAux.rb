@@ -8,7 +8,9 @@ end
 Quando('o usuário preencher os campos obrigatórios') do
   # cadgrupocontaaux.preencher_Campos
   grupo1 = $grupo
+  puts grupo1
   descricao1 = $descricao
+  puts descricao1
   cadgrupocontaaux.grupoField.set(grupo1)
   cadgrupocontaaux.descricaoField.set(descricao1)
   # fill_in "grupo", with: grupo1
@@ -31,7 +33,7 @@ Quando('o usuário pesquisar um registro previamente incluido') do
   page.assert_text('Grupo de Conta Auxiliar')
   @descricaoFiltro = $descricaoFiltro
   # puts @descricaoFiltro
-  cadgrupocontaaux.preencher_Filtros(@grupoFiltro, @descricaoFiltro)
+  cadgrupocontaaux.preencher_Filtros(@descricaoFiltro)
   botoes.clickButtonPesquisar
 end
 
@@ -54,11 +56,11 @@ end
 
 Então('realizar as atlerações desejadas') do
   @novaDesc = Faker::StarWars.character
-  # puts @novaDesc
+  puts @novaDesc
   cadgrupocontaaux.descricaoField.set(@novaDesc)
   # page.find('p-listbox > div.ui-listbox.ui-inputtext > div.ui-listbox-list-wrapper > ul.ui-listbox-list > li.ui-listbox-item', text: "CA2 - Atributos c.aux 2").click
   $descricaoFiltro = @novaDesc
-  # puts $descricaoFiltro
+  puts $descricaoFiltro
 end
 
 # EXCLUIR

@@ -7,3 +7,9 @@ Metrics/BlockLength:
 
 Metrics/MethodLength:
   Max: 20  
+
+Style/GlobalVars:
+  AllowedVariables:
+    - grupo
+    - descricao
+    - descricaoFiltro
