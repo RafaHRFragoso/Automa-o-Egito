@@ -95,5 +95,3 @@ Capybara.register_driver :selenium do |app|
     )
   end
 end
-
-Capybara.javascript_driver = :headless_chrome

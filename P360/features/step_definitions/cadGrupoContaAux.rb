@@ -16,7 +16,6 @@ Quando('o usuário preencher os campos obrigatórios') do
   # fill_in "grupo", with: grupo1
   # fill_in "descricao", with: descricao1
   # page.find(:label, "Controle Por Filial")
-  # page.find('p-listbox > div.ui-listbox.ui-inputtext > div.ui-listbox-list-wrapper > ul.ui-listbox-list > li.ui-listbox-item', text: "CA1 - Atributo c.aux 1").click
 end
 
 Quando('Salvar o registro') do
@@ -58,7 +57,6 @@ Então('realizar as atlerações desejadas') do
   @novaDesc = Faker::StarWars.character
   puts @novaDesc
   cadgrupocontaaux.descricaoField.set(@novaDesc)
-  # page.find('p-listbox > div.ui-listbox.ui-inputtext > div.ui-listbox-list-wrapper > ul.ui-listbox-list > li.ui-listbox-item', text: "CA2 - Atributos c.aux 2").click
   $descricaoFiltro = @novaDesc
   puts $descricaoFiltro
 end

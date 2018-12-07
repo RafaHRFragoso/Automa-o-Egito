@@ -2,7 +2,6 @@
 class CadGrupoContaAux < SitePrism::Page
   element :grupoField, '#grupo'
   element :descricaoField, '#descricao'
-  # element :filtrarAccordion, '#ui-accordiontab-18'
   element :divgrupoInicial, "procenge-dropdown[identificador='grupoinicial']"
   element :dropgrupoInicial, '.form-control.ng-tns-c11-7'
   element :divgrupoFinal, "procenge-dropdown[identificador='grupofinal']"
@@ -34,19 +33,13 @@ class CadGrupoContaAux < SitePrism::Page
     @itemFiltro = @grupoAtual + ' - ' + @descricaoAtual
     puts @itemFiltro
     within(divgrupoInicial) do
-      # grupoInicial.click
       dropgrupoInicial.click
-      # page.find('.form-control.ng-tns-c11-7').click
-      # page.find('p-dropdown > div.ui-dropdown-open > div.ui-dropdown-panel > div.ui-dropdown-filter-container > .ui-dropdown-filter.ui-inputtext').send_keys(@itemFiltro)
       page.find('.ui-dropdown-filter.ui-inputtext').send_keys(@itemFiltro)
       page.find('ul.ui-dropdown-items', text: @itemFiltro).click
     end
 
     within(divgrupoFinal) do
-      # grupoFinal.click
       dropgrupoFinal.click
-      # page.find('.form-control.ng-tns-c11-8').click
-      # page.find('p-dropdown > div.ui-dropdown-open > div.ui-dropdown-panel > div.ui-dropdown-filter-container > .ui-dropdown-filter.ui-inputtext').send_keys(@itemFiltro)
       page.find('.ui-dropdown-filter.ui-inputtext').send_keys(@itemFiltro)
       page.find('ul.ui-dropdown-items', text: @itemFiltro).click
     end
