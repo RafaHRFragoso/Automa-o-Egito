@@ -5,6 +5,6 @@ end
 
 # INCLUIR
 Quando('o usuário preencher os campos obrigatórios do Cadastro de Centro de Custo') do
-  cadcentrocusto.preencher_Campos
+  cadcentrocusto.preencherCampos
   sleep 5
 end

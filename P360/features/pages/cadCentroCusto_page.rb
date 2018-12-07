@@ -8,7 +8,7 @@ class CadCentroCusto < SitePrism::Page
   $descricao = Faker::StarWars.character
   # $hierarquia = Faker::Number.number(7)
 
-  def preencher_Campos
+  def preencherCampos
     @codigo = $codigo
     @descricao = $descricao
     # @hierarquia = $hierarquia

@@ -1,6 +1,6 @@
 # MODULO PARA TIRAR SCREENSHOT DA TELA
 module Helper
-  def tirar_foto(scenario_name, resultado)
+  def printScreenshot(scenario_name, resultado)
     timer_path = Time.now.strftime('%F').to_s
     path_file = "reports/screenshots/test_#{resultado}/run_#{timer_path}"
     screenshot = "#{path_file}/#{scenario_name}.png"

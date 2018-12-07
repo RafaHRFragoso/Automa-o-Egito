@@ -12,7 +12,7 @@ class CadGrupoContaAux < SitePrism::Page
   $descricao = Faker::StarWars.character
   $descricaoFiltro = ''
 
-  def preencher_Filtros(descricao)
+  def preencherFiltros(descricao)
     # case
     # when descricao == ''
     #   @grupoAtual = $grupo
@@ -23,29 +23,29 @@ class CadGrupoContaAux < SitePrism::Page
     #   @descricaoAtual = descricao
     #   @itemFiltro = @grupoAtual + ' - ' + @descricaoAtual
     # end
-    @grupoAtual = $grupo
-    @descricaoAtual = case descricao
-                      when ''
-                        $descricao
-                      else
-                        descricao
-                      end
-    @itemFiltro = @grupoAtual + ' - ' + @descricaoAtual
-    puts @itemFiltro
+    @grupo_atual = $grupo
+    @descricao_atual = case descricao
+                       when ''
+                         $descricao
+                       else
+                         descricao
+                       end
+    @item_filtro = @grupo_atual + ' - ' + @descricao_atual
+    puts @item_filtro
     within(divgrupoInicial) do
       dropgrupoInicial.click
-      page.find('.ui-dropdown-filter.ui-inputtext').send_keys(@itemFiltro)
-      page.find('ul.ui-dropdown-items', text: @itemFiltro).click
+      page.find('.ui-dropdown-filter.ui-inputtext').send_keys(@item_filtro)
+      page.find('ul.ui-dropdown-items', text: @item_filtro).click
     end
 
     within(divgrupoFinal) do
       dropgrupoFinal.click
-      page.find('.ui-dropdown-filter.ui-inputtext').send_keys(@itemFiltro)
-      page.find('ul.ui-dropdown-items', text: @itemFiltro).click
+      page.find('.ui-dropdown-filter.ui-inputtext').send_keys(@item_filtro)
+      page.find('ul.ui-dropdown-items', text: @item_filtro).click
     end
   end
 
-  def confirm_Exclusao
+  def confirmExclusao
     @message_alert = page.has_text?('Tem certeza que deseja excluir?')
     case @message_alert
     when true

@@ -26,9 +26,9 @@ After do |scenario|
   scenario_name = scenario_name.tr(' ', '_').downcase!
 
   if scenario.failed?
-    tirar_foto(scenario_name, 'falhou')
+    printScreenshot(scenario_name, 'falhou')
   elsif scenario.passed?
-    tirar_foto(scenario_name, 'passou')
+    printScreenshot(scenario_name, 'passou')
   else
     puts 'Status não encontrado'
   end

@@ -5,7 +5,7 @@ class LoginPage < SitePrism::Page
   element :passwordnameField, '#senha'
   # element :buttonLogin, 'button[type="submit"]'
 
-  def read_U
+  def readUser
     File.open('info.aut', 'r') do |arq|
       arq.each_line do |li|
         case li
@@ -19,7 +19,7 @@ class LoginPage < SitePrism::Page
     # return @user.to_s
   end
 
-  def read_S
+  def readPasswd
     File.open('info.aut', 'r') do |arq|
       arq.each_line do |li|
         case li
@@ -33,11 +33,11 @@ class LoginPage < SitePrism::Page
     # return @pssw.to_s
   end
 
-  def do_login
+  def doLogin(user, password)
     # user = 'RAFAEL2'
     # senha = 'PIRAMIDE'
-    @user = $user
-    @password = $password
+    @user = user
+    @password = password
     usernameField.set(@user)
     passwordnameField.set(@password)
     # buttonLogin.click

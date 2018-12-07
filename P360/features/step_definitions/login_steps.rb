@@ -3,11 +3,13 @@ Dado('que o usuário acesse a página inicial') do
 end
 
 Quando('logar com {string} e {string}') do |user, senha|
-  login.do_login(user, senha)
+  login.doLogin(user, senha)
 end
 
 Quando('o usuário realizar o login') do
-  login.do_login
+  @user = $user
+  @password = $password
+  login.doLogin(@user, @password)
 end
 
 Então('a logo do sistema deve ser exibida') do

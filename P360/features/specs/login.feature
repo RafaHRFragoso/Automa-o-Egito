@@ -13,7 +13,8 @@ Posso acessar o sistema com email e senha previamente cadastrados.
     Cenario: Login com Sucesso
         Quando o usuário realizar o login
         Então deve ser autenticado com sucesso
-
+        
+    @loginFailed
     Esquema do Cenario: Tentativa de login
         Quando logar com "<user>" e "<senha>"
         Então devo ver a seguinte mensagem "<alerta>"

@@ -16,13 +16,12 @@ class HomePage < SitePrism::Page
 
   def setEmpresa(empresa)
     @empresa = empresa
-    @empresaAtual = page.find('.box-info > h3').text
-    puts @empresaAtual
+    @empresa_atual = page.find('.box-info > h3').text
+    puts @empresa_atual
     @posicao_icon = page.find('#box-info-usuario > div.box-empresas > ul > li:nth-child(31)').text
     puts @posicao_icon
-
     case @empresa
-    when @empresaAtual
+    when @empresa_atual
       puts 'empresa icon ja selecionada'
     when @posicao_icon
       page.find('#box-info-usuario > div.box-empresas > ul > li:nth-child(31)').click
@@ -31,7 +30,7 @@ class HomePage < SitePrism::Page
     end
   end
 
-  def confirm_empresa
+  def confirmEmpresa
     @message_alert = page.has_text?('As informações da tela serão perdidas, deseja continuar?')
     case @message_alert
     when true

@@ -30,9 +30,9 @@ end
 
 Quando('o usuário pesquisar um registro previamente incluido') do
   page.assert_text('Grupo de Conta Auxiliar')
-  @descricaoFiltro = $descricaoFiltro
-  # puts @descricaoFiltro
-  cadgrupocontaaux.preencher_Filtros(@descricaoFiltro)
+  @descricao_filtro = $descricaoFiltro
+  # puts @descricao_filtro
+  cadgrupocontaaux.preencherFiltros(@descricao_filtro)
   botoes.clickButtonPesquisar
 end
 
@@ -54,10 +54,10 @@ Quando('acessar a tela de alterar registro') do
 end
 
 Então('realizar as atlerações desejadas') do
-  @novaDesc = Faker::StarWars.character
-  puts @novaDesc
-  cadgrupocontaaux.descricaoField.set(@novaDesc)
-  $descricaoFiltro = @novaDesc
+  @nova_desc = Faker::StarWars.character
+  puts @nova_desc
+  cadgrupocontaaux.descricaoField.set(@nova_desc)
+  $descricaoFiltro = @nova_desc
   puts $descricaoFiltro
 end
 
@@ -66,5 +66,5 @@ end
 Quando('realizar a exclusão do registro') do
   page.find('tr > td > p-dtcheckbox > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default').click
   botoes.clickButtonExcluir
-  cadgrupocontaaux.confirm_Exclusao
+  cadgrupocontaaux.confirmExclusao
 end
