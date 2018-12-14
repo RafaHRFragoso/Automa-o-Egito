@@ -1,10 +1,12 @@
 ---
-default: -p html -p bdd -p homolog -p firefox_headless
+default: -p html -p bdd -p hmg -p firefox_headless
 html: --format html --out=reports/features.html
 progress: --format progress
 bdd: --format pretty
-homolog: AMBIENTE=homolog
-producao: AMBIENTE=producao
+
+dev: ENVIRONMENT=dev
+hmg: ENVIRONMENT=hmg
+
 chrome: BROWSER=chrome 
 chrome_headless: BROWSER=chrome_headless 
 firefox: BROWSER=firefox

@@ -6,13 +6,12 @@ end
 # INCLUIR
 
 Quando('o usuário preencher os campos obrigatórios') do
-  # cadgrupocontaaux.preencher_Campos
   grupo1 = $grupo
   puts grupo1
   descricao1 = $descricao
   puts descricao1
-  cadgrupocontaaux.grupoField.set(grupo1)
-  cadgrupocontaaux.descricaoField.set(descricao1)
+  mantergrupocontaaux.grupoField.set(grupo1)
+  mantergrupocontaaux.descricaoField.set(descricao1)
   # fill_in "grupo", with: grupo1
   # fill_in "descricao", with: descricao1
   # page.find(:label, "Controle Por Filial")
@@ -32,7 +31,7 @@ Quando('o usuário pesquisar um registro previamente incluido') do
   page.assert_text('Grupo de Conta Auxiliar')
   @descricao_filtro = $descricaoFiltro
   # puts @descricao_filtro
-  cadgrupocontaaux.preencherFiltros(@descricao_filtro)
+  mantergrupocontaaux.preencherFiltros(@descricao_filtro)
   botoes.clickButtonPesquisar
 end
 
@@ -56,7 +55,7 @@ end
 Então('realizar as atlerações desejadas') do
   @nova_desc = Faker::StarWars.character
   puts @nova_desc
-  cadgrupocontaaux.descricaoField.set(@nova_desc)
+  mantergrupocontaaux.descricaoField.set(@nova_desc)
   $descricaoFiltro = @nova_desc
   puts $descricaoFiltro
 end
@@ -66,5 +65,5 @@ end
 Quando('realizar a exclusão do registro') do
   page.find('tr > td > p-dtcheckbox > div > div.ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default').click
   botoes.clickButtonExcluir
-  cadgrupocontaaux.confirmExclusao
+  mantergrupocontaaux.confirmExclusao
 end

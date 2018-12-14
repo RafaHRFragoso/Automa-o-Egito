@@ -1,6 +1,6 @@
 #language:pt
-@cadgrupoContaAux
-Funcionalidade: Cadastrar Grupo de Conta Auxiliar
+@manterGCA
+Funcionalidade: Manter Grupo de Conta Auxiliar
 
 Como um usuário logado no sistema
 Posso acessar a tela desejada

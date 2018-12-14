@@ -1,5 +1,5 @@
 # PAGE TELA GRUPO DE CONTA AUXILIAR
-class CadGrupoContaAux < SitePrism::Page
+class ManterGrupoContaAux < SitePrism::Page
   element :grupoField, '#grupo'
   element :descricaoField, '#descricao'
   element :divgrupoInicial, "procenge-dropdown[identificador='grupoinicial']"

@@ -16,8 +16,8 @@ World(Pages)
 World(Helper)
 
 BROWSER = ENV['BROWSER']
-AMBIENTE = ENV['AMBIENTE']
-CONFIG = YAML.load_file(File.dirname(__FILE__) + "/ambientes/#{AMBIENTE}.yml")
+ENVIRONMENT = ENV['ENVIRONMENT']
+CONFIG = YAML.load_file(File.dirname(__FILE__) + "/config/#{ENVIRONMENT}.yml")
 
 Capybara.configure do |config|
   config.default_driver = :selenium

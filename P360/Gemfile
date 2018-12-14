@@ -8,6 +8,7 @@ gem 'capybara-selenium'
 gem 'chromedriver-helper'
 gem 'cucumber'
 gem 'faker'
+gem 'httparty'
 gem 'rake'
 gem 'rspec'
 gem 'rubocop', require: false

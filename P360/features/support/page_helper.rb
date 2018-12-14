@@ -23,8 +23,8 @@ module Pages
     @telascontabil ||= TelasContabilidadePage.new
   end
 
-  def cadgrupocontaaux
-    @cadgrupocontaaux ||= CadGrupoContaAux.new
+  def mantergrupocontaaux
+    @mantergrupocontaaux ||= ManterGrupoContaAux.new
   end
 
   def cadcentrocusto
