@@ -1,5 +1,5 @@
 ---
-default: -p html -p bdd -p hmg -p firefox_headless
+default: -p html -p bdd -p hmg -p chrome
 html: --format html --out=reports/features.html
 progress: --format progress
 bdd: --format pretty
