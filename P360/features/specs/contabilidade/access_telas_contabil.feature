@@ -23,7 +23,7 @@ Funcionalidade: Acessar Telas Módulo Contábil
 
     @acessarTelaCA
     Cenario: Acessar Tela Contas Auxiliares    
-        Quando acessar a tela de Contas Auxiliares        
+        Quando acessar a tela de Contas Auxiliares
         Então o sistema deve exibir a tela de Contas Auxiliares 
 
     @acessarTelaCCont
