@@ -57,7 +57,6 @@ class Autenticar
       # expect(@asserts[:sTipo]).to eq("error")
       # expect(@asserts[:sMensagem]).to eq("Autenticação realizada com sucesso.")  
     end
-
-    return @asserts
+    @asserts
   end
 end

@@ -1,3 +1,4 @@
-url_service: 'http://10.50.254.162/desenv/wsSystem.asmx?WSDL'
+# url_service: 'http://10.50.254.162/desenv/wsSystem.asmx?WSDL'
+base_url: 'http://10.50.254.162/desenv/'
 user: 'RAFAEL2'
 password: 'PIRAMIDE'

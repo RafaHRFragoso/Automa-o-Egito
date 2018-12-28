@@ -10,12 +10,12 @@ end
 Então("irá retornar dados válidos para a requisição") do
   @asserts = @autenticar.validar_login
 
-  expect(@asserts[:sTipo]).to eq("success")
-  expect(@asserts[:sMensagem]).to eq("Autenticação realizada com sucesso.")
+  expect(@asserts[:sTipo]).eql?("success")
+  expect(@asserts[:sMensagem]).eql?("Autenticação realizada com sucesso.")
 
-  puts "Status da autenticação: #{@asserts[:sTipo]}"
-  puts "Mensagem da autenticação: #{@asserts[:sMensagem]}"
-  puts "Token da autenticação: #{@asserts[:token]}"
+  # puts "Status da autenticação: #{@asserts[:sTipo]}"
+  # puts "Mensagem da autenticação: #{@asserts[:sMensagem]}"
+  # puts "Token da autenticação: #{@asserts[:token]}"
 end
 
 Quando("realizar a autenticação com {string} e {string}") do |user, password|
@@ -24,6 +24,6 @@ end
 
 Então("irá retornar o {string} e {string} da autenticação") do |status, mensagem|
   @asserts = @autenticar.validar_login
-  expect(@asserts[:sTipo]).to eq(status)
-  expect(@asserts[:sMensagem]).to eq(mensagem)  
+  expect(@asserts[:sTipo]).eql?(status)
+  expect(@asserts[:sMensagem]).eql?(mensagem)  
 end
