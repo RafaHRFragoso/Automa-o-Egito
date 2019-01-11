@@ -3,9 +3,11 @@ class ManterGrupoContaAux < SitePrism::Page
   element :grupoField, '#grupo'
   element :descricaoField, '#descricao'
   element :divgrupoInicial, "procenge-dropdown[identificador='grupoinicial']"
-  element :dropgrupoInicial, '.form-control.ng-tns-c11-7'
+  # element :dropgrupoInicial, '.form-control.ng-tns-c11-7'
+  element :dropgrupoInicial, '.ui-dropdown-label'
   element :divgrupoFinal, "procenge-dropdown[identificador='grupofinal']"
-  element :dropgrupoFinal, '.form-control.ng-tns-c11-8'
+  # element :dropgrupoFinal, '.form-control.ng-tns-c11-8'
+  element :dropgrupoFinal, '.ui-dropdown-label'
   element :confirmar_exclusao, "procenge-button[tipo='Sim']"
 
   $grupo = Faker::Number.number(4)
