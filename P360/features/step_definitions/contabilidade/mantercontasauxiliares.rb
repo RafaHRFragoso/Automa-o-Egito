@@ -1,23 +1,32 @@
 Dado("que o usuário acesse a tela de Incluir Contas Auxiliares") do
-  pending # Write code here that turns the phrase above into concrete actions
+  botoes.clickButtonIncluir
+  page.assert_text('Incluir Conta Auxiliar')
 end
 
 Quando("o usuário preencher os campos obrigatórios de Contas Auxiliares") do
-  pending # Write code here that turns the phrase above into concrete actions
+  mantercontaaux.preencherCampos
 end
 
-Dado("que o usuário pesquise uma Conta Auxiliar previamente incluida") do
-  pending # Write code here that turns the phrase above into concrete actions
+Dado("que o usuário pesquise uma Conta Auxiliar {string}") do |status|
+  mantercontaaux.filtrarContaAux(status)
 end
 
 Então("o sistema deverá exibir a tela de detalhamnento da Conta Auxiliar") do
-  pending # Write code here that turns the phrase above into concrete actions
+  page.assert_text('Detalhar Conta Auxiliar')
+  mantercontaaux.verificarDetalhamento
 end
 
 Quando("acessar a tela de alteração de Conta Auxiliar") do
-  pending # Write code here that turns the phrase above into concrete actions
+  mantercontaaux.acessarCA
+  page.assert_text('Alterar Conta Auxiliar')
 end
 
 Quando("realizar a alteração da Conta Auxiliar") do
-  pending # Write code here that turns the phrase above into concrete actions
+  mantercontaaux.alterarCA
+end
+
+Quando("realizar a exclusão do registro de Conta Auxiliar") do
+  mantercontaaux.excluirCA
+  botoes.clickButtonExcluir
+  botoes.clickButtonSim
 end

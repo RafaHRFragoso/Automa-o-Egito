@@ -13,15 +13,15 @@ E cadastrar um novo registro no sistema
     E Salvar o registro
     Então a operação deverá ser realizada com sucesso
 
-    @detalharTL @tela_TL_fast
+    @detalharTL  @tela_TL_fast
     Cenario: Detalhar Tipo de Lançamento Caminho Feliz   
-    Dado que o usuário pesquise um Tipo de Lançamento previamente incluido
-    Quando detalhar o registro escolhido
+    Dado que o usuário pesquise um Tipo de Lançamento previamente 'incluido'
+    Quando detalhar o registro de lancamento escolhido
     Então o sistema deverá exibir a tela de detalhamnento do Tipo de Lançamento   
 
     @alterarTL @tela_TL_fast
     Cenario: Alterar Tipo de Lançamento Caminho Feliz
-    Dado que o usuário pesquise um Tipo de Lançamento previamente incluido
+    Dado que o usuário pesquise um Tipo de Lançamento previamente 'incluido'
     Quando acessar a tela de alteração de Tipo de Lançamento
     E realizar a alteração do Tipo de Lançamento
     E Salvar o registro
@@ -29,6 +29,6 @@ E cadastrar um novo registro no sistema
 
     @excluirTL @tela_TL_fast
     Cenario: Excluir Tipo de Lançamento Caminho Feliz
-    Dado que o usuário pesquise um Tipo de Lançamento previamente incluido
-    Quando realizar a exclusão do registro
+    Dado que o usuário pesquise um Tipo de Lançamento previamente 'alterado'
+    Quando realizar a exclusão do registro do Lançamento
     Então a operação deverá ser realizada com sucesso 

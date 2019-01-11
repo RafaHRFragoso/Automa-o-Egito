@@ -7,6 +7,8 @@ class BotoesPage < SitePrism::Page
   element :button_imprimir, "procenge-button[tipo='imprimir']"
   element :button_voltar, "procenge-button[tipo='voltar']"
   element :button_salvar, "procenge-button[tipo='salvar']"
+  element :button_adicionar, "procenge-button[tipo='adicionar']"
+  element :button_sim, "procenge-button[tipo='Sim']"
   # element :button_pesquisar, ""
   # element :button_limpar, ""
 
@@ -46,5 +48,13 @@ class BotoesPage < SitePrism::Page
 
   def clickButtonSalvar
     button_salvar.click
+  end
+
+  def clickButtonAdicionar
+    button_adicionar.click
+  end
+# verificar com rafael se o click no sim deve entrar junto com o excluir
+  def clickButtonSim
+    button_sim.click
   end
 end

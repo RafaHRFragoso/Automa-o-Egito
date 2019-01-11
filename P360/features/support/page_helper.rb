@@ -30,4 +30,22 @@ module Pages
   def cadcentrocusto
     @cadcentrocusto ||= CadCentroCusto.new
   end
+
+  def manterhistoricopadrao
+    @manterhistoricopadrao ||= ManterHistoricoPadrao.new
+  end
+
+  def mantertipolancamento
+    @mantertipolancamento ||= ManterTipoLancamento.new
+  end
+
+  def mantercontaaux
+    @mantercontaaux ||= ManterContaAux.new
+  end
+
+  def auxiliares
+    @auxiliares ||= Auxiliares.new
+  end
+ 
+
 end

@@ -45,6 +45,16 @@ Before('@tela_TL_fast') do
   visit '/contabilidade/lancamentotipo'
 end
 
+Before('@tela_HP') do
+  step 'acessar a tela de Histórico Padrão'
+  step 'o sistema deve exibir a tela de Histórico Padrão'
+end
+
+Before('@tela_HP_fast') do
+  visit '/contabilidade/historicopadrao'
+end
+
+
 After('@logout') do
   # click_button 'RAFAEL'
   # click_button 'Sair'

@@ -15,13 +15,13 @@ E cadastrar um novo registro no sistema
 
     @detalharGCA @tela_GCA_fast
     Cenario: Detalhar Grupo de Conta Auxiliar Caminho Feliz    
-        Quando o usuário pesquisar um registro previamente incluido
+        Quando o usuário pesquisar um registro previamente 'incluido'
         E detalhar o registro escolhido
         Então o sistema deverá exibir a tela de detalhamnento  
 
     @alterarGCA @tela_GCA_fast
     Cenario: Alterar Grupo de Conta Auxiliar Caminho Feliz
-        Quando o usuário pesquisar um registro previamente incluido
+        Quando o usuário pesquisar um registro previamente 'incluido'
         E acessar a tela de alterar registro
         Então realizar as atlerações desejadas
         E Salvar o registro
@@ -29,6 +29,6 @@ E cadastrar um novo registro no sistema
 
     @excluirGCA @tela_GCA_fast
     Cenario: Excluir Grupo de Conta Auxiliar Caminho Feliz
-        Quando o usuário pesquisar um registro previamente incluido
+        Quando o usuário pesquisar um registro previamente 'alterado'
         E realizar a exclusão do registro
         Então a operação deverá ser realizada com sucesso 

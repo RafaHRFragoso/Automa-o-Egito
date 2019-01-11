@@ -18,13 +18,14 @@ class HomePage < SitePrism::Page
     @empresa = empresa
     @empresa_atual = page.find('.box-info > h3').text
     puts @empresa_atual
-    @posicao_icon = page.find('#box-info-usuario > div.box-empresas > ul > li:nth-child(31)').text
+    @posicao_icon = page.find('#box-info-usuario > div.box-empresas > ul > li:nth-child(31) > span').text
     puts @posicao_icon
     case @empresa
     when @empresa_atual
       puts 'empresa icon ja selecionada'
     when @posicao_icon
-      page.find('#box-info-usuario > div.box-empresas > ul > li:nth-child(31)').click
+      sleep 1
+      page.find('#box-info-usuario > div.box-empresas > ul > li:nth-child(31) > span').click
     else
       page.find('ul.lista-empresas', text: @empresa).click
     end
@@ -40,9 +41,13 @@ class HomePage < SitePrism::Page
 end
 # PAGE DOS MODULOS
 class ModulosPage < SitePrism::Page
+  element :modulos, ".box-modulos"
   element :modulo_contabil, "a[href*='/P360/contabilidade/home']"
 
   def setModuloContabil
-    modulo_contabil.click
+    within(modulos) do
+      sleep 1
+      modulo_contabil.click
+    end
   end
 end
