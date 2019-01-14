@@ -52,18 +52,18 @@ class ManterHistoricoPadrao < SitePrism::Page
   def pesquisarHP(status)
     #@status = status
     case status
-      when 'incluido'
-        codigoInicial.set(@@valorCodigo)
-        codigoFinal.set(@@valorCodigo)
-        descInicial.set(@@valorHistorico)
-        descFinal.set(@@valorHistorico)
-        click_button 'Pesquisar'
-      when 'alterado'
-        codigoInicial.set(@@valorCodigo)
-        codigoFinal.set(@@valorCodigo)
-        descInicial.set(@@valorHistoricoAlterado)
-        descFinal.set(@@valorHistoricoAlterado)
-        click_button 'Pesquisar'
+    when 'incluido'
+      codigoInicial.set(@@valorCodigo)
+      codigoFinal.set(@@valorCodigo)
+      descInicial.set(@@valorHistorico)
+      descFinal.set(@@valorHistorico)
+      click_button 'Pesquisar'
+    when 'alterado'
+      codigoInicial.set(@@valorCodigo)
+      codigoFinal.set(@@valorCodigo)
+      descInicial.set(@@valorHistoricoAlterado)
+      descFinal.set(@@valorHistoricoAlterado)
+      click_button 'Pesquisar'
     end
   end
 

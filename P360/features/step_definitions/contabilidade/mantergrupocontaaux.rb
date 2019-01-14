@@ -35,9 +35,10 @@ end
 
 Quando("o usuário pesquisar um registro previamente {string}") do |status|
   page.assert_text('Grupo de Conta Auxiliar')
+  puts "Status do cenario no steps: #{@status_scenario}"
   #@descricao_filtro = $descricaoFiltro
   # puts @descricao_filtro
-  mantergrupocontaaux.preencherFiltros(status)
+  mantergrupocontaaux.preencherFiltros(status, @status_scenario)
   botoes.clickButtonPesquisar
 end
 

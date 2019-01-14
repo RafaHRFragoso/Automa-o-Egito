@@ -16,7 +16,9 @@ class ManterGrupoContaAux < SitePrism::Page
   @@descricao = Faker::StarWars.character
   @@descricaoFinal = Faker::StarWars.character
 
-  def preencherFiltros(status)
+  def preencherFiltros(status, status_scenario)
+    @status_scenario = status_scenario
+    puts "Status do cenario na page: #{@status_scenario}"
     @status = status
     case @status
     when 'incluido'
