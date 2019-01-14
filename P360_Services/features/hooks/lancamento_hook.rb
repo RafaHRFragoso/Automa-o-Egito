@@ -41,9 +41,37 @@ Before '@lancamento' do |scenario|
   when 'Alterar Lançamento'
     @lancamento = Lancamento.new(@body, @url_service)
     @lanc = @lancamento.pegar_lancamento
-    puts @lanc[:cod_lanc_deb]
-    puts @lanc[:cod_lanc_cred]
-    puts @lanc[:grupo_lanc]
+    @body = {
+      'EMPRESA' => '001',
+      'GRUPO_LANC' => @lanc[:grupo_lanc],
+      'FILIAL' => '001',
+      'DOCNO' => 'AUT2018',
+      'LDATA' => @timer_path,
+      'CTIPO' => 'C',
+      'CODORIGEM' => '03',
+      'COD_ARQUIVO' => 'BRSOAP',
+      'COD_VERSAO' => '0',
+      'DEBITOS' => {
+        'fc_DEBCRELANCAMENTO_dados' => {
+          'CODLANC' => @lanc[:cod_lanc_deb],
+          'CONTA' => '1.1.1.01.001',
+          'CODHIST' => 'D001',
+          'UNIDADE' => '000',
+          'COMPLEMENTO' => 'AUTOMAÇÃO',
+          'VALOR' => '300'
+        }
+      },
+      'CREDITOS' => {
+        'fc_DEBCRELANCAMENTO_dados' => {
+          'CODLANC' => @lanc[:cod_lanc_cred],
+          'CONTA' => '1.1.1.01.001',
+          'CODHIST' => 'D001',
+          'UNIDADE' => '000',
+          'COMPLEMENTO' => 'AUTOMAÇÃO',
+          'VALOR' => '300'
+        }        
+      }  
+    }
   when 'Excluir Lançamento'
     @lancamento = Lancamento.new(@body, @url_service)
     @lanc = @lancamento.pegar_lancamento
