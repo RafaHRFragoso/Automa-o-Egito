@@ -18,7 +18,7 @@ class ManterGrupoContaAux < SitePrism::Page
 
   def preencherFiltros(status, status_scenario)
     @status_scenario = status_scenario
-    puts "Status do cenario na page: #{@status_scenario}"
+    puts "Status do Cenario na Page: #{@status_scenario}"
     @status = status
     case @status
     when 'incluido'
