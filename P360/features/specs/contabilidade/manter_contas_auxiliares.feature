@@ -22,10 +22,10 @@ E cadastrar um novo registro no sistema
     @alterarCA @tela_CA_fast
     Cenario: Alterar Conta Auxiliar Caminho Feliz
     Dado que o usuário pesquise uma Conta Auxiliar 'incluida'
-    Quando acessar a tela de alteração de Conta Auxiliar
-    E realizar a alteração da Conta Auxiliar
+    E acessar a tela de alteração de Conta Auxiliar
+    Quando realizar a alteração da Conta Auxiliar
     E Salvar o registro
-    Então a operação deverá ser realizada com sucesso         
+    Então a operação deverá ser realizada com sucesso       
 
     @excluirCA @tela_CA_fast
     Cenario: Excluir Conta Auxiliar Caminho Feliz

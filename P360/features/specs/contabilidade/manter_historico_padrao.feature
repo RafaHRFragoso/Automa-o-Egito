@@ -16,14 +16,16 @@ E cadastrar um novo registro no sistema
     @detalharHP @tela_HP_fast
     Cenario: Detalhar Historico Padrão Caminho Feliz   
     Dado que o usuário pesquise um Historico Padrão 'incluido'
-    Quando detalhar o registro escolhido do historico Padrão
-    Então o sistema deverá exibir a tela de detalhamento de Historico Padrão
+    # Quando detalhar o registro escolhido do Historico Padrão
+    Quando detalhar o registro escolhido
+    # Então o sistema deverá exibir a tela de detalhamento de Historico Padrão
+    Então o sistema deverá exibir o detalhamento do Historico Padrão pesquisado
 
     @alterarHP @tela_HP_fast
     Cenario: Alterar Historico Padrão Caminho Feliz
     Dado que o usuário pesquise um Historico Padrão 'incluido'
-    Quando acessar a tela de alteração de Historico Padrão
-    E realizar a alteração do Historico Padrão
+    E acessar a tela de alteração de Historico Padrão
+    Quando realizar a alteração do Historico Padrão
     E Salvar o registro
     Então a operação deverá ser realizada com sucesso       
 

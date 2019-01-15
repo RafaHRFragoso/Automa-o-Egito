@@ -24,7 +24,7 @@ class ManterHistoricoPadrao < SitePrism::Page
     $valorCodigoDetalhar = @@valorCodigo
     $valorHistoricoDetalhar = @@valorHistorico
 
-  def preencherCampos()
+  def incluirHP()
   # preenchendo o campo código
     comboCodigo.set(@@valorCodigo)
   # preenchendo o campo historico
@@ -51,20 +51,17 @@ class ManterHistoricoPadrao < SitePrism::Page
 
   def pesquisarHP(status)
     #@status = status
+    codigoInicial.set(@@valorCodigo)
+    codigoFinal.set(@@valorCodigo)
     case status
     when 'incluido'
-      codigoInicial.set(@@valorCodigo)
-      codigoFinal.set(@@valorCodigo)
       descInicial.set(@@valorHistorico)
       descFinal.set(@@valorHistorico)
-      click_button 'Pesquisar'
     when 'alterado'
-      codigoInicial.set(@@valorCodigo)
-      codigoFinal.set(@@valorCodigo)
       descInicial.set(@@valorHistoricoAlterado)
       descFinal.set(@@valorHistoricoAlterado)
-      click_button 'Pesquisar'
     end
+    click_button 'Pesquisar'
   end
 
   def detalharHP()

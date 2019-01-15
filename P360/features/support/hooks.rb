@@ -55,16 +55,12 @@ Before('@tela_HP_fast') do
 end
 
 Before do |scenario|
-  # puts scenario.name
   @scenario_name = scenario.name
-  puts @scenario_name
   @status_scenario = @scenario_name.include?("Excluir")
   case @status_scenario
   when true
-    puts 'cenario de excluir'
     @status_scenario = 'excluir'
   when false
-    puts 'outros cenários'
     @status_scenario = 'incluir'
   end
   @status_scenario

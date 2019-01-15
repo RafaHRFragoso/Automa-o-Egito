@@ -12,48 +12,39 @@ class ManterTipoLancamento < SitePrism::Page
   @@descricaoAntes = Faker::Science.element
   @@descricaoDepois = Faker::Science.element
 
-  def incluirTL()
+  def incluirTL
     codigo.set(@@codigoLancamento)
     descricao.set(@@descricaoAntes)
   end
 
   def pesquisarTL(status)
     @status = status
+    codInicial.set(@@codigoLancamento)
+    codFinal.set(@@codigoLancamento)
     case @status
     when 'incluido'
-      codInicial.set(@@codigoLancamento)
-      codFinal.set(@@codigoLancamento)
       descricaoInicial.set(@@descricaoAntes)
       descricaoFinal.set(@@descricaoAntes)
-      click_button 'Pesquisar'
-      boxItemFiltrado.click
     when 'alterado'
-      codInicial.set(@@codigoLancamento)
-      codFinal.set(@@codigoLancamento)
       descricaoInicial.set(@@descricaoDepois)
       descricaoFinal.set(@@descricaoDepois)
-      click_button 'Pesquisar'
-      boxItemFiltrado.click
     end
+    click_button 'Pesquisar'
+    boxItemFiltrado.click
   end
 
-  def detalharTL()
+  def detalharTL
     click_button 'Detalhar'
   end
 
-  def alterarTL()
+  def alterarTL
     descricao.set(@@descricaoDepois)
   end
 
-  def validarInfoTL()
+  def validarInfoTL
     @primeiroCampo = page.find('#codigoLancamento').value
     @segundoCampo = page.find('#descricaoLancamento').value
-    # valores obtidos
-    puts "Primeiro: #{@primeiroCampo}"
-    puts "Segundo: #{@segundoCampo}"
-    # valores a serem comparados
-    puts "Primeiro Correto: #{@@codigoLancamento}"
-    puts "Segundo Correto: #{@@descricaoAntes}"
+
     # validacao
     expect(@primeiroCampo).to eql(@@codigoLancamento)
     expect(@segundoCampo).to eql(@@descricaoAntes)

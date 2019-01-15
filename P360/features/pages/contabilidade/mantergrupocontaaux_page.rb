@@ -1,82 +1,57 @@
 # PAGE TELA GRUPO DE CONTA AUXILIAR
 class ManterGrupoContaAux < SitePrism::Page
+  include Pages
+  # include RSpec::Matchers
   element :grupoField, '#grupo'
   element :descricaoField, '#descricao'
+  element :dropdownGrupo, '.ui-dropdown-label'
   element :divgrupoInicial, "procenge-dropdown[identificador='grupoinicial']"
-  element :dropdown, '.ui-dropdown-label'
-  #element :dropgrupoInicial, '.ui-dropdown-label'
   element :divgrupoFinal, "procenge-dropdown[identificador='grupofinal']"
-  # element :dropgrupoFinal, '.ui-dropdown-label'
-  element :confirmar_exclusao, "procenge-button[tipo='Sim']"
-  element :boxFiltro, '.ui-dropdown-filter.ui-inputtext'
-  element :clickFiltro, 'ul.ui-dropdown-items'
-  element :flagFiltro, 'td > p-dtcheckbox > div > div.ui-chkbox-box'
+  element :campoFiltro, '.ui-dropdown-filter.ui-inputtext'
+  element :clickCampoFiltro, 'ul.ui-dropdown-items'
+  element :checkFiltro, 'td > p-dtcheckbox > div > div.ui-chkbox-box'
 
   @@grupo = Faker::Number.number(4)
   @@descricao = Faker::StarWars.character
   @@descricaoFinal = Faker::StarWars.character
 
-  def preencherFiltros(status, status_scenario)
+  def pesquisarGCA(status_scenario)
     @status_scenario = status_scenario
-    puts "Status do Cenario na Page: #{@status_scenario}"
-    @status = status
-    case @status
-    when 'incluido'
+    case @status_scenario
+    when 'incluir'
       @item_filtro = @@grupo + ' - ' + @@descricao
       preencherCombos(@item_filtro)
-    when 'alterado'
+    when 'excluir'
       @item_filtro = @@grupo + ' - ' + @@descricaoFinal
       preencherCombos(@item_filtro)
     end
+    botoes.clickButtonPesquisar
+    checkFiltro.click
   end
 
   def preencherCombos(item_filtro)
     @item_filtro = item_filtro
     within(divgrupoInicial) do
-      dropdown.click
-      #page.find('.ui-dropdown-filter.ui-inputtext').send_keys(@item_filtro)
-      #page.find('ul.ui-dropdown-items', text: @item_filtro).click
-      boxFiltro.set(@item_filtro)
-      clickFiltro.click
+      dropdownGrupo.click
+      campoFiltro.set(@item_filtro)
+      clickCampoFiltro.click
     end
     within(divgrupoFinal) do
-      dropdown.click
-      boxFiltro.set(@item_filtro)
-      clickFiltro.click
+      dropdownGrupo.click
+      campoFiltro.set(@item_filtro)
+      clickCampoFiltro.click
     end
   end
-
-    # @grupo_atual = $grupo
-    # @descricao_atual = case descricao
-    #                    when ''
-    #                      $descricao
-    #                    else
-    #                      descricao
-    #                    end
-    # @item_filtro = @grupo_atual + ' - ' + @descricao_atual
-    # puts @item_filtro
-    
-    # within(divgrupoInicial) do
-    #   dropgrupoInicial.click
-    #   page.find('.ui-dropdown-filter.ui-inputtext').send_keys(@item_filtro)
-    #   page.find('ul.ui-dropdown-items', text: @item_filtro).click
-    # end
-
-    # within(divgrupoFinal) do
-    #   dropgrupoFinal.click
-    #   page.find('.ui-dropdown-filter.ui-inputtext').send_keys(@item_filtro)
-    #   page.find('ul.ui-dropdown-items', text: @item_filtro).click
-    # end
 
   def confirmExclusao
     @message_alert = page.has_text?('Tem certeza que deseja excluir?')
     case @message_alert
     when true
-      confirmar_exclusao.click
+      botoes.clickButtonSim
     end
   end
 
-  def alterarDescricao
+  def alterarGCA
     descricaoField.set(@@descricaoFinal)
   end
 
@@ -84,4 +59,19 @@ class ManterGrupoContaAux < SitePrism::Page
     descricaoField.set(@@descricao)
     grupoField.set(@@grupo)
   end
+
+  def validarDetalharGCA
+    @grupoGCA = page.find(grupoField).value
+    @descricaoGCA = page.find(descricaoField).value
+    puts 'pegou da tela'
+    puts @grupoGCA
+    puts @descricaoGCA
+    puts 'faker gerou'
+    puts @@grupo
+    puts @@descricao
+    
+    expect(@grupoGCA).to eql(@@grupo)
+    expect(@descricaoGCA).to eql(@@descricao)
+  end
+
 end

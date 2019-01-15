@@ -47,5 +47,4 @@ module Pages
     @auxiliares ||= Auxiliares.new
   end
  
-
 end

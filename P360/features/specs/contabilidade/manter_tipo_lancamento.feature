@@ -16,14 +16,15 @@ E cadastrar um novo registro no sistema
     @detalharTL  @tela_TL_fast
     Cenario: Detalhar Tipo de Lançamento Caminho Feliz   
     Dado que o usuário pesquise um Tipo de Lançamento previamente 'incluido'
-    Quando detalhar o registro de lancamento escolhido
-    Então o sistema deverá exibir a tela de detalhamnento do Tipo de Lançamento   
+    # Quando detalhar o registro de lancamento escolhido
+    Quando detalhar o registro escolhido
+    Então o sistema deverá exibir o detalhamento do Tipo de Lançamento   
 
     @alterarTL @tela_TL_fast
     Cenario: Alterar Tipo de Lançamento Caminho Feliz
     Dado que o usuário pesquise um Tipo de Lançamento previamente 'incluido'
-    Quando acessar a tela de alteração de Tipo de Lançamento
-    E realizar a alteração do Tipo de Lançamento
+    E acessar a tela de alteração de Tipo de Lançamento
+    Quando realizar a alteração do Tipo de Lançamento
     E Salvar o registro
     Então a operação deverá ser realizada com sucesso       
 

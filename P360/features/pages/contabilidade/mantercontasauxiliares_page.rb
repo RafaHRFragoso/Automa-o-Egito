@@ -15,7 +15,7 @@ class ManterContaAux < SitePrism::Page
   @@descricaoInicial = Faker::LeagueOfLegends.champion
   @@descricaoFinal = Faker::LeagueOfLegends.champion
 
-  def preencherCampos()
+  def incluirCA
     dropdown.click
     boxDrop.set('0001 - CLIENTES')
     clienteFiltroIncluir.click
@@ -32,30 +32,24 @@ class ManterContaAux < SitePrism::Page
   #  click_button 'Pesquisar'
   #end
 
-def filtrarContaAux(status)
+def pesquisarCA(status)
   @status = status
+  dropdown.click
+  boxDrop.set('0001 - CLIENTES')
+  clienteFiltroPesquisar.click
+  boxCodigoInicial.set(@@codigoPesquisa)
+  boxCodigoFinal.set(@@codigoPesquisa)
   case @status
   when 'incluida'
-    dropdown.click
-    boxDrop.set('0001 - CLIENTES')
-    clienteFiltroPesquisar.click
-    boxCodigoInicial.set(@@codigoPesquisa)
-    boxCodigoFinal.set(@@codigoPesquisa)
     boxDescricao.set(@@descricaoInicial)
-    click_button 'Pesquisar'
   when 'alterada'
-    dropdown.click
-    boxDrop.set('0001 - CLIENTES')
-    clienteFiltroPesquisar.click
-    boxCodigoInicial.set(@@codigoPesquisa)
-    boxCodigoFinal.set(@@codigoPesquisa)
-    boxDescricao.set(@@descricaoFinal)
-    click_button 'Pesquisar'    
+    boxDescricao.set(@@descricaoFinal)  
   end
+  click_button 'Pesquisar'  
+  flagConta.click
 end
 
   def acessarCA()
-    flagConta.click
     click_button 'Alterar'
   end
 
