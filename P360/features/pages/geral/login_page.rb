@@ -33,14 +33,19 @@ class LoginPage < SitePrism::Page
     # return @pssw.to_s
   end
 
-  def doLogin(user, password)
-    # user = 'RAFAEL2'
-    # senha = 'PIRAMIDE'
+  def tryLogin(user, password)
     @user = user
     @password = password
     usernameField.set(@user)
     passwordnameField.set(@password)
-    # buttonLogin.click
+    click_button 'Entrar'
+  end
+
+  def doLogin
+    @user = CONFIG['user']
+    @password = CONFIG['password']
+    usernameField.set(@user)
+    passwordnameField.set(@password)
     click_button 'Entrar'
   end
 end

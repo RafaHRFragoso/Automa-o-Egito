@@ -11,19 +11,22 @@ end
 
 # DETALHAR
 
-Dado("que o usuário pesquise uma Conta Auxiliar {string}") do |status|
-  mantercontaaux.pesquisarCA(status)
+Dado("que o usuário pesquise uma Conta Auxiliar previamente incluida") do
+  botoes.clickButtonVoltar
+  mantercontaaux.pesquisarCA(@status_scenario)
 end
 
 Então("o sistema deverá exibir a tela de detalhamnento da Conta Auxiliar") do
   page.assert_text('Detalhar Conta Auxiliar')
-  mantercontaaux.verificarDetalhamento
+  @campoValores = mantercontaaux.validarDetalharCA
+  expect(@campoValores[:campoCodigo]).to eql(@campoValores[:codigoPesquisa])
+  expect(@campoValores[:campoDescricao]).to eql(@campoValores[:descicaoInicial])
 end
 
 # ALTERAR
 
 Quando("acessar a tela de alteração de Conta Auxiliar") do
-  mantercontaaux.acessarCA
+  botoes.clickButtonAlterar
   page.assert_text('Alterar Conta Auxiliar')
 end
 
@@ -32,9 +35,4 @@ Quando("realizar a alteração da Conta Auxiliar") do
 end
 
 # EXCLUIR
-
-Quando("realizar a exclusão do registro de Conta Auxiliar") do
-  mantercontaaux.excluirCA
-  botoes.clickButtonExcluir
-  botoes.clickButtonSim
-end
+# Função de excluir está sendo usada a de GRUPO DE CONTA AUXILIAR

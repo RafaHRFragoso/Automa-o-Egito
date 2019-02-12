@@ -1,3 +1,6 @@
 url_padrao: 'http://localhost:4200/'
 user: 'RAFAEL2'
 password: 'PIRAMIDE'
+descricao: 'AUTOMACAO'
+desc_abreviada: 'AUT'
+alterado: 'ALTERADO'

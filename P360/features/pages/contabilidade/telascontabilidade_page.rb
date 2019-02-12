@@ -20,6 +20,10 @@ class TelasContabilidadePage < SitePrism::Page
   element :telaRazao, "a[href*='/P360/contabilidade/razao']"
   element :telaDiario, "a[href*='/P360/contabilidade/diario']"
 
+  def path_contabilidade
+    @path_contabilidade = '/P360/contabilidade/home'
+  end
+  
   def visitMenuCadastros
     # menuCadastros.click
     click_link 'Cadastros'

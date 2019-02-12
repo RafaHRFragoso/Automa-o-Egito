@@ -1,5 +1,5 @@
 #language:pt
-@manterGCA
+@manterGCA @all
 Funcionalidade: Manter Grupo de Conta Auxiliar
 
 Como um usuário logado no sistema
@@ -13,13 +13,13 @@ E cadastrar um novo registro no sistema
         E Salvar o registro
         Então a operação deverá ser realizada com sucesso
 
-    @detalharGCA @tela_GCA_fast
+    @detalharGCA
     Cenario: Detalhar Grupo de Conta Auxiliar Caminho Feliz    
         Dado que o usuário pesquise um registro previamente incluido
         Quando detalhar o registro escolhido
         Então o sistema deverá exibir a tela de detalhamento do Grupo de Conta Auxiliar
 
-    @alterarGCA @tela_GCA_fast
+    @alterarGCA
     Cenario: Alterar Grupo de Conta Auxiliar Caminho Feliz
         Dado que o usuário pesquise um registro previamente incluido
         E acessar a tela de alteração de Grupo de Conta Auxiliar
@@ -27,7 +27,7 @@ E cadastrar um novo registro no sistema
         E Salvar o registro
         Então a operação deverá ser realizada com sucesso     
 
-    @excluirGCA @tela_GCA_fast
+    @excluirGCA
     Cenario: Excluir Grupo de Conta Auxiliar Caminho Feliz
         Dado que o usuário pesquise um registro previamente incluido
         Quando realizar a exclusão do registro

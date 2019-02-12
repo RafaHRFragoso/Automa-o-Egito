@@ -1,5 +1,5 @@
 #language:pt
-@manterHP
+@manterHP @all
 Funcionalidade: Manter Historico Padrão
 
 Como um usuário logado no sistema
@@ -13,24 +13,22 @@ E cadastrar um novo registro no sistema
     E Salvar o registro
     Então a operação deverá ser realizada com sucesso
 
-    @detalharHP @tela_HP_fast
+    @detalharHP
     Cenario: Detalhar Historico Padrão Caminho Feliz   
-    Dado que o usuário pesquise um Historico Padrão 'incluido'
-    # Quando detalhar o registro escolhido do Historico Padrão
+    Dado que o usuário pesquise um Historico Padrão previamente incluido
     Quando detalhar o registro escolhido
-    # Então o sistema deverá exibir a tela de detalhamento de Historico Padrão
     Então o sistema deverá exibir o detalhamento do Historico Padrão pesquisado
 
-    @alterarHP @tela_HP_fast
+    @alterarHP
     Cenario: Alterar Historico Padrão Caminho Feliz
-    Dado que o usuário pesquise um Historico Padrão 'incluido'
+    Dado que o usuário pesquise um Historico Padrão previamente incluido
     E acessar a tela de alteração de Historico Padrão
     Quando realizar a alteração do Historico Padrão
     E Salvar o registro
     Então a operação deverá ser realizada com sucesso       
 
-    @excluirHP @tela_HP_fast
+    @excluirHP
     Cenario: Excluir Historico Padrão Caminho Feliz
-    Dado que o usuário pesquise um Historico Padrão 'alterado'
-    Quando realizar a exclusão do Historico Padrão
+    Dado que o usuário pesquise um Historico Padrão previamente incluido
+    Quando realizar a exclusão do registro
     Então a operação deverá ser realizada com sucesso 

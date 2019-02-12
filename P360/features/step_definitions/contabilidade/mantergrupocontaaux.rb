@@ -21,18 +21,23 @@ end
 
 Dado('que o usuário pesquise um registro previamente incluido') do
   page.assert_text('Grupo de Conta Auxiliar')
+  # ESTE É UM METODO TEMPORÁRIO E DEVERÁ SER EXCLUÍDO QUANDO RESLVER O PROBLEMA DE CARREGAR O 
+  # ITEM INCLUIDO NO COMBO DE FILTRO APÓS CLICAR NO BOTÃO VOLTAR OU O SISTEMA PERMITIR 
+  # NOVAMENTE RECARREGAR A PÁGINA OU ACESSAR A PAGINA DIRETAMENTE PELA URL
+  mantergrupocontaaux.telaGCAInicial
   mantergrupocontaaux.pesquisarGCA(@status_scenario)
 end
 
 Quando('detalhar o registro escolhido') do
-
   botoes.clickButtonDetalhar
 end
 
 Então('o sistema deverá exibir a tela de detalhamento do Grupo de Conta Auxiliar') do
   page.assert_text('Detalhar Grupo de Conta Auxiliar')
-  mantergrupocontaaux.validarDetalharGCA
-  # FALTA IMPLEMENTAR VALIDAÇÕES DE DETALHAMENTO
+  @camposValores = mantergrupocontaaux.validarDetalharGCA
+  # puts @camposValores
+  expect(@camposValores[:grupoGCA]).to eql(@camposValores[:grupo])
+  expect(@camposValores[:descricaoGCA]).to eql(@camposValores[:descricao])
 end
 
 # ALTERAR

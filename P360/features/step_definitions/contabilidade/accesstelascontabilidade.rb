@@ -2,7 +2,7 @@
 Quando('acessar a tela de Grupo Contábil') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuCadastros
   # clicar no submenu plano de contas
@@ -19,7 +19,8 @@ end
 Quando('acessar a tela de Grupos de Contas Auxiliares') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  # expect(page).to have_current_path('/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuCadastros
   # clicar no submenu plano de contas
@@ -36,7 +37,7 @@ end
 Quando('acessar a tela de Contas Auxiliares') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuCadastros
   # clicar no submenu plano de contas
@@ -53,7 +54,7 @@ end
 Quando('acessar a tela de Contas Contábeis') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuCadastros
   # clicar no submenu plano de contas
@@ -72,7 +73,7 @@ end
 Quando('acessar a tela de Centros de Custo') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuCadastros
   # clicar no submenu plano de contas
@@ -89,7 +90,7 @@ end
 Quando('acessar a tela de Grupos de Centro de Custo') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuCadastros
   # clicar no submenu plano de contas
@@ -105,7 +106,7 @@ end
 Quando('acessar a tela de Contas por Centro de Custo e Conta Auxilar') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuCadastros
   # clicar no submenu plano de contas
@@ -123,7 +124,7 @@ end
 Quando('acessar a tela de Histórico Padrão') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuCadastros
   # clicar no link da tela de grupo contabeis
@@ -137,7 +138,7 @@ end
 Quando('acessar a tela de Tipo de Lançamento') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuCadastros
   # clicar no link da tela de grupo contabeis
@@ -153,7 +154,7 @@ end
 Quando('acessar a tela de Lançamento Normal') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuLancamentos
   # clicar no link da tela de grupo contabeis
@@ -167,7 +168,7 @@ end
 Quando('acessar a tela de Lançamento Automático') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuLancamentos
   # clicar no link da tela de grupo contabeis
@@ -181,7 +182,7 @@ end
 Quando('acessar a tela de Autorização de Lançamentos') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuLancamentos
   # clicar no link da tela de grupo contabeis
@@ -195,7 +196,7 @@ end
 Quando('acessar a tela de Provisão de Títulos por Competência') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuLancamentos
   # clicar no link da tela de grupo contabeis
@@ -209,7 +210,7 @@ end
 Quando('acessar a tela de Reconhecimento de Receita por Competência') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuLancamentos
   # clicar no link da tela de grupo contabeis
@@ -225,7 +226,7 @@ end
 Quando('acessar a tela de Balancete') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuRelatorios
   # clicar no link da tela de grupo contabeis
@@ -239,7 +240,7 @@ end
 Quando('acessar a tela de Razão') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuRelatorios
   # clicar no link da tela de grupo contabeis
@@ -253,7 +254,7 @@ end
 Quando('acessar a tela de Diário') do
   # selecionar modulo
   modulo.setModuloContabil
-  expect(page).to have_current_path('http://10.50.254.162/P360/contabilidade/home')
+  expect(page).to have_current_path(telascontabil.path_contabilidade)
   # clicar no menu cadastros
   telascontabil.visitMenuRelatorios
   # clicar no link da tela de grupo contabeis

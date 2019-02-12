@@ -43,8 +43,27 @@ module Pages
     @mantercontaaux ||= ManterContaAux.new
   end
 
+  def mantercontacontabil
+    @mantercontacontabil ||= ManterContaContabil.new
+  end
+
   def auxiliares
     @auxiliares ||= Auxiliares.new
   end
- 
+
+  def manterlancamento
+    @manterlancamento ||= ManterLancamento.new
+  end
+
+  def mantercentrocusto
+    @mantercentrocusto ||= ManterCentroCusto.new
+  end
+
+  def mantercontaccustocontaaux
+    @mantercontaccustocontaaux ||= ManterContaCCustoContaAux.new
+  end
+
+  def mantergrupocentrocusto
+    @mantergrupocentrocusto ||= ManterGrupoCentroCusto.new
+  end
 end

@@ -1,20 +1,19 @@
 # PAGE TELA GRUPO DE CONTA AUXILIAR
 class ManterGrupoContaAux < SitePrism::Page
   include Pages
-  # include RSpec::Matchers
-  element :grupoField, '#grupo'
-  element :descricaoField, '#descricao'
+  element :campoGrupo, '#grupo'
+  element :campoDescricao, '#descricao'
   element :dropdownGrupo, '.ui-dropdown-label'
-  element :divgrupoInicial, "procenge-dropdown[identificador='grupoinicial']"
-  element :divgrupoFinal, "procenge-dropdown[identificador='grupofinal']"
+  element :divGrupoInicial, "procenge-dropdown[identificador='grupoinicial']"
+  element :divGrupoFinal, "procenge-dropdown[identificador='grupofinal']"
   element :campoFiltro, '.ui-dropdown-filter.ui-inputtext'
   element :clickCampoFiltro, 'ul.ui-dropdown-items'
-  element :checkFiltro, 'td > p-dtcheckbox > div > div.ui-chkbox-box'
+  element :checkItemFiltrado, 'td > p-dtcheckbox > div > div.ui-chkbox-box'
 
   @@grupo = Faker::Number.number(4)
-  @@descricao = Faker::StarWars.character
-  @@descricaoFinal = Faker::StarWars.character
-
+  @@descricao = CONFIG['descricao'] + @@grupo
+  @@descricaoFinal = CONFIG['descricao'] + Faker::Number.number(4)
+ 
   def pesquisarGCA(status_scenario)
     @status_scenario = status_scenario
     case @status_scenario
@@ -26,22 +25,40 @@ class ManterGrupoContaAux < SitePrism::Page
       preencherCombos(@item_filtro)
     end
     botoes.clickButtonPesquisar
-    checkFiltro.click
+    checkItemFiltrado.click
   end
 
   def preencherCombos(item_filtro)
     @item_filtro = item_filtro
-    within(divgrupoInicial) do
+    within(divGrupoInicial) do
       dropdownGrupo.click
       campoFiltro.set(@item_filtro)
-      clickCampoFiltro.click
+      sleep 1
+      campoFiltro.send_keys :down
+      campoFiltro.send_keys :enter
     end
-    within(divgrupoFinal) do
+    within(divGrupoFinal) do
       dropdownGrupo.click
       campoFiltro.set(@item_filtro)
-      clickCampoFiltro.click
+      campoFiltro.send_keys :down
+      campoFiltro.send_keys :enter
+
     end
   end
+
+  # def preencherCombos(item_filtro)
+  #   @item_filtro = item_filtro
+  #   within(divGrupoInicial) do
+  #     dropdownGrupo.click
+  #     campoFiltro.set(@item_filtro)
+  #     clickCampoFiltro.click
+  #   end
+  #   within(divGrupoFinal) do
+  #     dropdownGrupo.click
+  #     campoFiltro.set(@item_filtro)
+  #     clickCampoFiltro.click
+  #   end
+  # end
 
   def confirmExclusao
     @message_alert = page.has_text?('Tem certeza que deseja excluir?')
@@ -52,26 +69,30 @@ class ManterGrupoContaAux < SitePrism::Page
   end
 
   def alterarGCA
-    descricaoField.set(@@descricaoFinal)
+    campoDescricao.set(@@descricaoFinal)
   end
 
   def incluirGCA
-    descricaoField.set(@@descricao)
-    grupoField.set(@@grupo)
+    campoDescricao.set(@@descricao)
+    campoGrupo.set(@@grupo)
   end
 
   def validarDetalharGCA
-    @grupoGCA = page.find(grupoField).value
-    @descricaoGCA = page.find(descricaoField).value
-    puts 'pegou da tela'
-    puts @grupoGCA
-    puts @descricaoGCA
-    puts 'faker gerou'
-    puts @@grupo
-    puts @@descricao
-    
-    expect(@grupoGCA).to eql(@@grupo)
-    expect(@descricaoGCA).to eql(@@descricao)
+    @grupoGCA = campoGrupo.value
+    @descricaoGCA = campoDescricao.value
+    @camposValores = {
+      :grupoGCA => @grupoGCA, 
+      :descricaoGCA => @descricaoGCA, 
+      :grupo => @@grupo, 
+      :descricao => @@descricao
+    }
   end
-
+  # ESTE É UM METODO TEMPORÁRIO E DEVERÁ SER EXCLUÍDO QUANDO RESLVER O PROBLEMA DE CARREGAR O 
+  # ITEM INCLUIDO NO COMBO DE FILTRO APÓS CLICAR NO BOTÃO VOLTAR OU O SISTEMA PERMITIR 
+  # NOVAMENTE RECARREGAR A PÁGINA OU ACESSAR A PAGINA DIRETAMENTE PELA URL
+  def telaGCAInicial
+    botoes.clickButtonVoltar
+    telascontabil.visitTelaGruposContabeis
+    telascontabil.visitTelaGruposdeContasAuxiliares
+  end
 end

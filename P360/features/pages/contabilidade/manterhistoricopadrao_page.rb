@@ -1,94 +1,71 @@
 class ManterHistoricoPadrao < SitePrism::Page
   # elementos para o metodo preencherCampos
-  element :comboCodigo, 'input[id="codigo"]'
-  element :comboHistorico, 'input[id="historico"]'
-  element :boxTemComplemento, 'div[class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"]'
-  element :listaComplemento, 'input[id="campotabelacomplemento00"]'
-  element :complementoFiltrado, 'div:nth-child(1) > p-autocomplete > span > div > ul > li > span'
+  include Pages
+  element :campoCodigo, 'input[id="codigo"]'
+  element :campoHistorico, 'input[id="historico"]'
+  element :checkIncluirComplemento, 'div[class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"]'
+  element :campoFiltrarOrigem, 'input[id="campotabelacomplemento00"]'
+  element :itemFiltradoOrigem, 'div:nth-child(1) > p-autocomplete > span > div > ul > li > span'
   element :adicionarComplemento, 'div > div.tr.ng-star-inserted > div:nth-child(2) > a'
-  element :tipoComplemento, 'div.ui-listbox-list-wrapper > ul > li:nth-child(13) > span'
-  element :focoDescricao, 'procenge-inputtextarea[identificador="descricao"]'
-  element :descricaoComplemento, 'textarea'
+  element :itemComplemento, 'div.ui-listbox-list-wrapper > ul > li:nth-child(13) > span'
+  element :divDescricao, 'procenge-inputtextarea[identificador="descricao"]'
+  element :campoDescricao, '.ui-inputtext'
    # elementos para o metodo pesquisarHP
-  element :codigoInicial, 'Input[id="codigoinicial"]'
-  element :codigoFinal, 'Input[id="codigofinal"]'
-  element :descInicial, 'Input[id="descricaoinicial"]'
-  element :descFinal, 'Input[id="descricaofinal"]'
-  # elementos para o metodo detalharHP
-  element :boxElemento, 'td > p-dtcheckbox > div > div.ui-chkbox-box'
+  element :campoCodigoInicial, 'Input[id="codigohistoricovalorInicial"]'
+  element :campoCodigoFinal, 'Input[id="codigohistoricovalorFinal"]'
+  element :campoDescInicial, 'Input[id="descricaovalorInicial"]'
+  element :campoDescFinal, 'Input[id="descricaovalorFinal"]'
+  element :checkItemFiltrado, 'td > p-dtcheckbox > div > div.ui-chkbox-box'
 
-    @@valorHistorico = Faker::DragonBall.character
-    @@valorHistoricoAlterado = Faker::DragonBall.character
-    @@valorCodigo = 'T' + Faker::Number.number(3) 
+  @@valorCodigo = 'T' + Faker::Number.number(3) 
+  @@valorHistorico = CONFIG['descricao'] + @@valorCodigo
+  @@valorHistoricoAlterado = CONFIG['descricao']  + Faker::Number.number(3) 
 
-    $valorCodigoDetalhar = @@valorCodigo
-    $valorHistoricoDetalhar = @@valorHistorico
-
-  def incluirHP()
-  # preenchendo o campo código
-    comboCodigo.set(@@valorCodigo)
-  # preenchendo o campo historico
-    comboHistorico.set(@@valorHistorico)
-  # marcando a opção de complemento
-    boxTemComplemento.click
-  # clicando no botao de adicionar origem
-    click_button 'Adicionar Origem'
-  # inserindo o valor "CAIXA" para filtrar
-    listaComplemento.set('CAIXA')
-  # clicando no valor filtrado
-    complementoFiltrado.click
-  # clicando em adicionar complemento
+  def incluirHP
+    campoCodigo.set(@@valorCodigo)
+    campoHistorico.set(@@valorHistorico)
+    checkIncluirComplemento.click
+    botoes.clickButtonAdicionarOrigem
+    campoFiltrarOrigem.set('CAIXA')
+    itemFiltradoOrigem.click
     adicionarComplemento.click
-  # clique no complemento de valor : "Numero do documento"
-    tipoComplemento.click
-  # adicionando descrição
-    within(focoDescricao) do
-      descricaoComplemento.set('Automacao')
+    itemComplemento.click
+    within(divDescricao) do
+      campoDescricao.set('Automacao')
     end
-  # clicando no botao adicionar
-    click_button 'Adicionar'
+    botoes.clickButtonAdicionar
   end
 
   def pesquisarHP(status)
-    #@status = status
-    codigoInicial.set(@@valorCodigo)
-    codigoFinal.set(@@valorCodigo)
+    campoCodigoInicial.set(@@valorCodigo)
+    campoCodigoFinal.set(@@valorCodigo)
     case status
-    when 'incluido'
-      descInicial.set(@@valorHistorico)
-      descFinal.set(@@valorHistorico)
-    when 'alterado'
-      descInicial.set(@@valorHistoricoAlterado)
-      descFinal.set(@@valorHistoricoAlterado)
+    when 'incluir'
+      campoDescInicial.set(@@valorHistorico)
+    #  campoDescFinal.set(@@valorHistorico)
+    when 'excluir'
+      campoDescInicial.set(@@valorHistoricoAlterado)
+    #  campoDescFinal.set(@@valorHistoricoAlterado)
     end
-    click_button 'Pesquisar'
+    botoes.clickButtonPesquisar
+    checkItemFiltrado.click
+    # campoDescFinal está comentado pois o 360 se encontra 
+    # com bug na quantidade de caracteres na pesquisa
+
   end
 
-  def detalharHP()
-    boxElemento.click
-    click_button 'Detalhar'
+  def validarDetalharHP
+    @campoCodigo = campoCodigo.value
+    @campoHistorico = campoHistorico.value
+    @campoValores = {
+      :campoCodigo => @campoCodigo,
+      :campoHistorico => @campoHistorico,
+      :valorCodigo => @@valorCodigo,
+      :valorHistorico => @@valorHistorico
+    }
   end
 
-  def verificarInfo()
-    @campos = Hash.new
-
-    @campos[:campoCodigo] = page.find('#codigo').value
-    @campos[:campoHistorico] = page.find('#historico').value
-    
-    puts @campos
-    return @campos 
-  end 
-
-  def selecionarAlterarHP()
-    boxElemento.click
-    click_button 'Alterar'
-  end
-
-  def alterarHP()
-    comboHistorico.set(@@valorHistoricoAlterado)
-  end
-
-  def excluirHP()
-    boxElemento.click
+  def alterarHP
+    campoHistorico.set(@@valorHistoricoAlterado)
   end
  end

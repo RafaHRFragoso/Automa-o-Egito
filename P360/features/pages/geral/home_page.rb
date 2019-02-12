@@ -16,19 +16,31 @@ class HomePage < SitePrism::Page
 
   def setEmpresa(empresa)
     @empresa = empresa
+    # puts "empresa passada no step: #{@empresa}"
     @empresa_atual = page.find('.box-info > h3').text
-    puts @empresa_atual
-    @posicao_icon = page.find('#box-info-usuario > div.box-empresas > ul > li:nth-child(31) > span').text
-    puts @posicao_icon
+    # puts "empresa atual: #{@empresa_atual}"
+    @posicao_icom = page.find('#box-info-usuario > div.box-empresas > ul > li:nth-child(31) > span').text
+    # puts "empresa da posicao 31: #{@posicao_icon}"
+    @primeira_empresa = page.find('#box-info-usuario > div.box-empresas > ul > li:first-child > span').text
+    # puts "primeira empresa da lista: #{@primeira_empresa}"
     case @empresa
     when @empresa_atual
-      puts 'empresa icon ja selecionada'
-    when @posicao_icon
+      puts "Empresa #{@empresa} já selecionada"
+    when @posicao_icom
       sleep 1
       page.find('#box-info-usuario > div.box-empresas > ul > li:nth-child(31) > span').click
+      @empresa = @posicao_icom
+      confirmEmpresa
+    when @primeira_empresa
+      sleep 1
+      page.find('#box-info-usuario > div.box-empresas > ul > li:first-child > span').click
+      @empresa = 'AGROSSSSSSSSSSSSSSSS'
+      confirmEmpresa
     else
       page.find('ul.lista-empresas', text: @empresa).click
+      confirmEmpresa
     end
+    @empresa
   end
 
   def confirmEmpresa

@@ -11,28 +11,23 @@ end
 
 # DETALHAR
 
-Dado("que o usuário pesquise um Historico Padrão {string}") do |status|
-  manterhistoricopadrao.pesquisarHP(status)
+Dado("que o usuário pesquise um Historico Padrão previamente incluido") do
+  botoes.clickButtonVoltar
+  manterhistoricopadrao.pesquisarHP(@status_scenario)
 end
 
-# Quando("detalhar o registro escolhido do Historico Padrão") do
-#   manterhistoricopadrao.detalharHP
-# end
-
 Então("o sistema deverá exibir o detalhamento do Historico Padrão pesquisado") do
-# Então("o sistema deverá exibir a tela de detalhamento de Historico Padrão") do
   page.assert_text('Detalhar Histórico Padrão')
   expect(page).to have_content("Automacao")
-  @campos = manterhistoricopadrao.verificarInfo
-  puts @campos
-  expect(@campos[:campoCodigo]).to eql($valorCodigoDetalhar)
-  expect(@campos[:campoHistorico]).to eql($valorHistoricoDetalhar)  
+  @camposValores = manterhistoricopadrao.validarDetalharHP
+  expect(@camposValores[:campoCodigo]).to eql(@camposValores[:valorCodigo])
+  expect(@camposValores[:campoHistorico]).to eql(@camposValores[:valorHistorico])
 end
 
 # ALTERAR
 
 Quando("acessar a tela de alteração de Historico Padrão") do
-  manterhistoricopadrao.selecionarAlterarHP
+  botoes.clickButtonAlterar
   page.assert_text('Alterar Histórico Padrão')
 end
 
@@ -41,9 +36,4 @@ Quando("realizar a alteração do Historico Padrão") do
 end
 
 # EXCLUIR
-
-Quando("realizar a exclusão do Historico Padrão") do
-  manterhistoricopadrao.excluirHP
-  botoes.clickButtonExcluir
-  botoes.clickButtonSim
-end
+# Função de excluir está sendo usada a de GRUPO DE CONTA AUXILIAR

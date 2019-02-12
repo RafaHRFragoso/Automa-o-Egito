@@ -11,23 +11,27 @@ end
 
 # DETALHAR
 
-Dado("que o usuário pesquise um Tipo de Lançamento previamente {string}") do |status|
-  mantertipolancamento.pesquisarTL(status)
+Dado("que o usuário pesquise um Tipo de Lançamento previamente incluido") do
+  botoes.clickButtonVoltar
+  mantertipolancamento.pesquisarTL(@status_scenario)
 end
 
 Quando("detalhar o registro de lancamento escolhido") do
-  mantertipolancamento.detalharTL  
+  botoes.clickButtonDetalhar
 end
 
 Então("o sistema deverá exibir o detalhamento do Tipo de Lançamento") do
   page.assert_text('Detalhar Tipo de Lançamento')
-  mantertipolancamento.validarInfoTL
+  @campoValores = mantertipolancamento.validarDetalharTL
+  expect(@campoValores[:campoCodigo]).to eql(@campoValores[:codigoLancamento])
+  expect(@campoValores[:campoDescricao]).to eql(@campoValores[:descricaoAntes])
 end
 
 # ALTERAR
 
 Quando("acessar a tela de alteração de Tipo de Lançamento") do  
   botoes.clickButtonAlterar
+  page.assert_text('Alterar Tipo de Lançamento')
 end
 
 Quando("realizar a alteração do Tipo de Lançamento") do
@@ -35,8 +39,4 @@ Quando("realizar a alteração do Tipo de Lançamento") do
 end
 
 # EXCLUIR
-
-Quando("realizar a exclusão do registro do Lançamento") do
-  botoes.clickButtonExcluir
-  botoes.clickButtonSim
-end
+# Função de excluir está sendo usada a de GRUPO DE CONTA AUXILIAR

@@ -31,7 +31,5 @@ Style/GlobalVars:
     '$grupo',
     '$descricao',
     '$descricaoFiltro',
-    '$user',
-    '$password',
     '$codigo' 
     ]

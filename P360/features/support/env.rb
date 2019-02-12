@@ -26,8 +26,6 @@ Capybara.configure do |config|
   config.default_max_wait_time = 10
   # config.app_host = 'http://10.50.254.162/P360'
   # config.app_host = 'http://localhost:4200/'
-  $user = CONFIG['user']
-  $password = CONFIG['password']
 end
 
 Capybara.register_driver :selenium do |app|
